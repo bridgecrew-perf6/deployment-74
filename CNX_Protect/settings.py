@@ -29,10 +29,10 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['protectcnx.azurewebsites.net','djangowithdocker.azurewebsites.net','localhost']
 # CSRF_TRUSTED_ORIGINS = ['https://protectcnx.azurewebsites.net','https://djangowithdocker.azurewebsites.net','http://localhost:8081/']
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['cnxdeployment.azurewebsites.net']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cnxdeployment.azurewebsites.net']
 
-# CSRF_TRUSTED_ORIGINS = ['https://cnxdeployment.azurewebsites.net', 'https://djangowithdocker.azurewebsites.net',
+CSRF_TRUSTED_ORIGINS = ['https://cnxdeployment.azurewebsites.net', 'https://djangowithdocker.azurewebsites.net',
 #                         'http://localhost:8081/']
 # Application definition
 INSTALLED_APPS = [
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 # ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -214,4 +214,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
