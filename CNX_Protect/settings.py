@@ -50,10 +50,11 @@ INSTALLED_APPS = [
     'import_export',
     'account',
     'ContractLby',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
 
-    # 'admin_view_permission',
+   
 ]
+                         # 'admin_view_permission',
 # ADMIN_VIEW_PERMISSION_MODELS = [
 #     auth.User,
 #     ...
