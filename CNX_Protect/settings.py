@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'account',
     'ContractLby',
     'whitenoise.runserver_nostatic',
-
-   
 ]
                          # 'admin_view_permission',
 # ADMIN_VIEW_PERMISSION_MODELS = [
