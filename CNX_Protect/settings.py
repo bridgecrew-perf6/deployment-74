@@ -37,8 +37,7 @@ ALLOWED_HOSTS = ['cnxazure.azurewebsites.net']
 CSRF_TRUSTED_ORIGINS = ['https://cnxazure.azurewebsites.net', 'https://djangowithdocker.azurewebsites.net',
 #                         'http://localhost:8081/']
 # Application definition
-INSTALLED_APPS = [
-    'CNXProtect_Utl.apps.CnxprotectUtlConfig',
+INSTALLED_APPS = ['CNXProtect_Utl.apps.CnxprotectUtlConfig',
     'webpage.apps.WebpageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,8 +49,7 @@ INSTALLED_APPS = [
     'import_export',
     'account',
     'ContractLby',
-    'whitenoise.runserver_nostatic',
-]
+    'whitenoise.runserver_nostatic']
                          # 'admin_view_permission',
 # ADMIN_VIEW_PERMISSION_MODELS = [
 #     auth.User,
