@@ -49,8 +49,8 @@ INSTALLED_APPS = ['CNXProtect_Utl.apps.CnxprotectUtlConfig',
     'import_export',
     'account',
     'ContractLby',
-    'whitenoise.runserver_nostatic']
-                         # 'admin_view_permission',
+   ]
+                         # 'admin_view_permission', 'whitenoise.runserver_nostatic',
 # ADMIN_VIEW_PERMISSION_MODELS = [
 #     auth.User,
 #     ...
