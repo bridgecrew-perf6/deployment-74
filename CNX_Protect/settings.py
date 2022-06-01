@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['cnxazure.azurewebsites.net']
 # ['cnxdeployment.azurewebsites.net']
 
 
-CSRF_TRUSTED_ORIGINS = ['https://cnxazure.azurewebsites.net', 'https://djangowithdocker.azurewebsites.net',
+CSRF_TRUSTED_ORIGINS = ['https://cnxazure.azurewebsites.net', 'https://djangowithdocker.azurewebsites.net']
 #                         'http://localhost:8081/']
 # Application definition
 INSTALLED_APPS = ['CNXProtect_Utl.apps.CnxprotectUtlConfig',
