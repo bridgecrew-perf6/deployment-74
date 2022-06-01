@@ -1,4 +1,4 @@
-tkinter
+tk==0.1.0
 easygui==0.98.3
 adal==1.2.7
 aenum==3.1.8
