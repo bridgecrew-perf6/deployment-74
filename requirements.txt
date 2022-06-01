@@ -1,4 +1,4 @@
-tkinter-page==0.0.5
+tkinter
 easygui==0.98.3
 adal==1.2.7
 aenum==3.1.8
