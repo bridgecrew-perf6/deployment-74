@@ -13,7 +13,7 @@ bs4==0.0.1
 case-conversion==2.1.0
 catalogue==2.0.7
 certifi==2021.10.8
-tkinter
+tkinter==8.6.12
 cffi==1.15.0
 chardet==4.0.0
 charset-normalizer==2.0.12
