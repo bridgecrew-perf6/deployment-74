@@ -538,7 +538,7 @@ import docx
 # import numpy
 import PyPDF4
 # import PyPDF2
-import easygui
+#import easygui
 # import textract
 import pandas as pd
 from itertools import compress
@@ -990,7 +990,7 @@ import docx
 # import numpy
 import PyPDF4
 # import PyPDF2
-import easygui
+#import easygui
 # import textract
 import pandas as pd
 from itertools import compress
@@ -1355,7 +1355,7 @@ import docx
 # import numpy
 import PyPDF4
 # import PyPDF2
-import easygui
+#import easygui
 # import textract
 import pandas as pd
 from itertools import compress
