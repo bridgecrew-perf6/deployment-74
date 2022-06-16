@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'CNXAzure'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3C4FA1B0E7E74F5B9C5A3695E83FC4A0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8DDB37A5618E4AAB88C52C0780CAD576 }}
