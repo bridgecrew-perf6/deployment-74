@@ -119,7 +119,7 @@ def experiment2(request):
     F_Len = len(p4.iloc[:]['notesfile_1'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     print(X_File)
     XL_File = pd.read_excel(X_File)
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
@@ -157,7 +157,7 @@ def experiment2(request):
     F_Len = len(p4.iloc[:]['notesfile_1'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     XL_File = pd.read_excel(X_File)
     excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
@@ -177,7 +177,7 @@ def experiment2(request):
     F_Len = len(p6.iloc[:]['notesfile_11'])
     print(F_Len)
     F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
-    X_File_1 = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count_1
+    X_File_1 = BASE_DIR+"/media/" + F_Count_1
     XL_File_1 = pd.read_excel(X_File_1)
     excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
@@ -227,7 +227,7 @@ def FMEA_Indexing(request):
     F_Len = len(p4.iloc[:]['notesfile_11'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_11']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     print(X_File)
     XL_File = pd.read_excel(X_File)
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
@@ -469,7 +469,7 @@ def pdfword(request):
     print(p2)
     for p3 in p2.iloc[:]['notesfile1']:
         # print(p3)
-        p = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + p3
+        p = BASE_DIR+"/media/" + p3
         # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
         # p = BASE_DIR1+p3
         print(p)
@@ -678,7 +678,7 @@ def cl_files(request, context=None):
     print(p2)
     for p3 in p2.iloc[:]['notesfile']:
         # print(p3)
-        pp = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + p3
+        pp = BASE_DIR+"/media/" + p3
         # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
         # p = BASE_DIR1+p3
         print(pp)
@@ -1219,7 +1219,7 @@ def FM_Real(request):
     print(p2)
     for p3 in p2.iloc[:]['notesfile_1']:
         # print(p3)
-        pp = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + p3
+        pp = BASE_DIR+"/media/" + p3
         # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
         # p = BASE_DIR1+p3
         print(pp)
@@ -2066,7 +2066,7 @@ def master_data(request):
     F_Len = len(p4.iloc[:]['notesfile_1'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     print(X_File)
     XL_File = pd.read_excel(X_File)
     MSA_Name = 'Acer'
@@ -2128,8 +2128,8 @@ def indexing_data2(request):
     print(F_Len)
     F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
     F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
-    X_File_1 = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count_1
-    File_Tracker_1 = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count1_1
+    X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
     print("The output Master File is", X_File_1)
     print(X_File_1)
     XL_File_2 = pd.read_excel(X_File_1)
@@ -2201,7 +2201,7 @@ def indexing_data4(request):
     F_Len = len(p4.iloc[:]['notesfile_1'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     # print(X_File)
     XL_File = pd.read_excel(X_File)
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
@@ -2269,8 +2269,8 @@ def indexing_data5(request):
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
     F_Count1 = p4.iloc[F_Len - 2]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
-    File_Tracker = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count1
+    X_File = BASE_DIR+"/media/" + F_Count
+    File_Tracker = BASE_DIR+"/media/" + F_Count1
     print("The output Master File is", X_File)
     print("The output File Tracker is", File_Tracker)
     XL_File = pd.read_excel(X_File)
@@ -2375,8 +2375,8 @@ def indexing_data5(request):
     print(F_Len)
     F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
     F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
-    X_File_1 = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count_1
-    File_Tracker_1 = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count1_1
+    X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
     print("The output Master File is", X_File_1)
     print("The output File Tracker is", File_Tracker_1)
     XL_File_1 = pd.read_excel(X_File_1)
@@ -2590,7 +2590,7 @@ def indexing(request):
     F_Len = len(p4.iloc[:]['notesfile_1'])
     print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = "C://Users/RNALAB/Concentrix Corporation/CNX_Protect/media/" + F_Count
+    X_File = BASE_DIR+"/media/" + F_Count
     print(X_File)
     XL_File = pd.read_excel(X_File)
     # print("Column headings:", XL_File.columns)
