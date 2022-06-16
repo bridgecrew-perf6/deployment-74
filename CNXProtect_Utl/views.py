@@ -1367,7 +1367,7 @@ print("If `flg` not specified as 'lower', search algorithm will be case sensitiv
 # # flg = "upper"
 # FileCount = 0
 '''  TEST DIRECTORIES BELOW   '''
-x = [os.path.join(r, file) for r, d, f in os.walk(r"C:\Users\RNALAB\Concentrix Corporation\Contract_File") for file in
+x = [os.path.join(r, file) for r, d, f in os.walk(BASE_DIR+"/CNX_Protect") for file in
      f]
 ''' Obtain list of files '''
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
