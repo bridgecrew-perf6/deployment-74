@@ -2515,7 +2515,7 @@ def score_card(request):
     import pandas as pd
     import numpy as np
     # reads table from pdf file
-    df = read_pdf("C://Users/RNALAB/OneDrive - Concentrix Corporation/Score_Card/Scorecard.pdf",
+    df = read_pdf(BASE_DIR+"/Scorecard.pdf",
                   pages="all")  # address of pdf file
     for sht in range(0, len(df)):
         if (len(df[sht]) > 10):
@@ -2545,14 +2545,14 @@ def score_card(request):
                     # df4 = file.join(df2)
 
             file.to_excel(
-                'C:\\Users\RNALAB\OneDrive - Concentrix Corporation\Score_Card\Score_card_merged1_6.58_Table_' + str(
+                BASE_DIR+'/Score_card_merged1_6.58_Table_' + str(
                     sht + 1) + '.xlsx', sheet_name='Sheet' + str(sht + 1))
             # df3.save()
             # , index = False)
             # writer = pd.ExcelWriter('C:\\Users\sumithra.r\OneDrive - Concentrix Corporation\Score_Card\Score_card_merged1_6.58.xlsx.xlsx', engine='xlsxwriter')
         else:
             file.to_excel(
-                'C:\\Users\RNALAB\OneDrive - Concentrix Corporation\Score_Card\Score_card_merged1_6.58_Table_' + str(
+                BASE_DIR+'\Score_card_merged1_6.58_Table_' + str(
                     sht + 1) + '.xlsx', sheet_name='Sheet' + str(sht + 1))
     excel_filename_score = "Score_card" + str(datetime.datetime.today().date()) + ".xlsx"
     file.to_excel(BASE_DIR + '/media/' + excel_filename_score)
