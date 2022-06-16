@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-4y#ro1fpk^_w8wy9f@-a=k9#&6@d&1@m#an(9-vd4#y6&)xe0y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # https://protectcnx.azurewebsites.net
 
 # ALLOWED_HOSTS = ['protectcnx.azurewebsites.net','djangowithdocker.azurewebsites.net','localhost']
