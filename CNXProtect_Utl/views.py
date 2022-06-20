@@ -1385,7 +1385,7 @@ yDOCX = [k for k in x if k.endswith('.DOCX')]  # DOCX Alone
 y2 = ypdf + yPDF
 yDo = yDOCX + ydocx
 yDox = ydoc + yDOC
-Dictionary_Word = pd.read_excel(BASE_DIR+"/Keyword_File_CL.xlsx", sheet_name=0)
+Dictionary_Word = pd.read_excel(BASE_DIR+"/keyword_File_CL.xlsx", sheet_name=0)
 dec = re.compile('\d+\.\d+')
 dig = re.compile('\d+')
 alphabets = "([A-Za-z])"
