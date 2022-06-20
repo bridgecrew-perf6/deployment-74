@@ -17,8 +17,10 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+    print("Execution Started2")
     execute_from_command_line(sys.argv)
 
 
 if __name__ == '__main__':
+    print("Execution Started1")
     main()
