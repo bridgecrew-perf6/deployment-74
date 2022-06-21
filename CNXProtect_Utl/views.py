@@ -2261,23 +2261,23 @@ def indexing_data5(request):
         # p1 = file.notesfile
         a = Master_Data(notesfile_1=notesfile_1)
         a.save()
-    p3 = Master_Data.objects.values('notesfile_1')
+    #p3 = Master_Data.objects.values('notesfile_1')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p4 = pd.DataFrame(p3, columns=['notesfile_1'])
-    print(p4)
+    p4 = pd.DataFrame(Master_Data.objects.values('notesfile_1'), columns=['notesfile_1'])
+    #print(p4)
     F_Len = len(p4.iloc[:]['notesfile_1'])
-    print(F_Len)
+    #print(F_Len)
     F_Count = p4.iloc[F_Len - 1]['notesfile_1']
     F_Count1 = p4.iloc[F_Len - 2]['notesfile_1']
     X_File = BASE_DIR+"/media/" + F_Count
     File_Tracker = BASE_DIR+"/media/" + F_Count1
-    print("The output Master File is", X_File)
-    print("The output File Tracker is", File_Tracker)
-    XL_File = pd.read_excel(X_File)
-    FileTracker = pd.read_excel(File_Tracker)
+    print("Reading the Contract Files...")
+    XL_File = pd.read_excel(X_File, usecols=['File_Name/DirName', 'Word', 'Theme/Topic', 'Sentence', 'MSA'])
+    FileTracker = pd.read_excel(File_Tracker, usecols=['File_Name'])
+    print("Read the Contract Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name = request.GET.getlist('MSA_1')
-    print(MSA_Name)
+    #print(MSA_Name)
     Theme_Name = request.GET.getlist('Theme')
 
     DF17 = XL_File[XL_File['MSA'].isin(MSA_Name) & XL_File['Word'].isin(Theme_Name)]
@@ -2293,7 +2293,7 @@ def indexing_data5(request):
     Themes = XL_File['Theme/Topic']
     Keyword = XL_File['Word']
     File = XL_File['File_Name/DirName']
-    print(Sent)
+    #print(Sent)
 
     Sent1 = Sent.iloc[101]
     Sent2 = Sent.iloc[102]
@@ -2354,8 +2354,8 @@ def indexing_data5(request):
     keywords = len(XL_File['Word'].unique())
     File_No = len(FileTracker['File_Name'].unique())
     DF17_2 = len(XL_File)
-    XL = XL_File
-    print(XL)
+    #XL = XL_File
+    #print(XL)
     excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     #XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
     df_filepath_Exe1 = '/media/' + excel_filename_3
@@ -2367,39 +2367,39 @@ def indexing_data5(request):
         # p1 = file.notesfile
         a = Master_Data1(notesfile_11=notesfile_11)
         a.save()
-    p5 = Master_Data1.objects.values('notesfile_11')
+    #p5 = Master_Data1.objects.values('notesfile_11')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p6 = pd.DataFrame(p5, columns=['notesfile_11'])
-    print(p6)
+    p6 = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
+    #print(p6)
     F_Len = len(p6.iloc[:]['notesfile_11'])
-    print(F_Len)
+    #print(F_Len)
     F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
     F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
     X_File_1 = BASE_DIR+"/media/" + F_Count_1
     File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
-    print("The output Master File is", X_File_1)
-    print("The output File Tracker is", File_Tracker_1)
-    XL_File_1 = pd.read_excel(X_File_1)
-    FileTracker_1 = pd.read_excel(File_Tracker_1)
+    print("Reading the FMEA Files...")
+    XL_File_1 = pd.read_excel(X_File_1, usecols=['FileName', 'Key', 'Sentance', 'Theme/Topic', 'Geo', 'MSA'])
+    FileTracker_1 = pd.read_excel(File_Tracker_1, usecols=['FileName'])
+    print("Read the FMEA Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name_1 = request.GET.getlist('Geo')
-    print(MSA_Name_1)
+    #print(MSA_Name_1)
     Theme_Name_1 = request.GET.getlist('Theme/Topic')
-    print(Theme_Name_1)
+    #print(Theme_Name_1)
     DF17_1 = XL_File_1[XL_File_1['Geo'].isin(MSA_Name_1) & XL_File_1['Key'].isin(Theme_Name_1)]
     # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
     excel_filename_1_1 = "Indexing_report_FMEA_" + str(datetime.datetime.today().date()) + ".xlsx"
     #DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1_1)
     DF17_1_1 = '/media/' + excel_filename_1
     DF17_2_1 = len(XL_File_1)
-    print(DF17_2_1)
+    #print(DF17_2_1)
 
     Sent_1 = XL_File_1['Sentance']
     MSA_1 = XL_File_1['MSA']
     Themes_1 = XL_File_1['Theme/Topic']
     Keyword_1 = XL_File_1['Key']
     File_1 = XL_File_1['FileName']
-    print(Sent_1)
+    #print(Sent_1)
 
     Account_1 = len(XL_File_1['Geo'].unique())
     Theme_1 = len(XL_File_1['Theme/Topic'].unique())
@@ -2413,7 +2413,7 @@ def indexing_data5(request):
     Themes_1 = XL_File_1['Theme/Topic']
     Keyword_1 = XL_File_1['Key']
     File_1 = XL_File_1['FileName']
-    print(Sent)
+    #print(Sent)
 
     Sent1_1 = Sent_1.iloc[1]
     Sent2_1 = Sent_1.iloc[2]
@@ -2468,7 +2468,7 @@ def indexing_data5(request):
     File12_1 = File_1.iloc[12][70:]
     File13_1 = File_1.iloc[13][70:]
     XL_1 = XL_File_1
-    print(XL_1)
+    #print(XL_1)
     excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     #XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
     df_filepath_Exe1_1 = '/media/' + excel_filename_4
