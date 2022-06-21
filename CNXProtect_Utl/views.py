@@ -2283,7 +2283,7 @@ def indexing_data5(request):
     DF17 = XL_File[XL_File['MSA'].isin(MSA_Name) & XL_File['Word'].isin(Theme_Name)]
     # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
     excel_filename_1 = "Indexing_report_" + str(datetime.datetime.today().date()) + ".xlsx"
-    DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
+    #DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
     DF17_1 = '/media/' + excel_filename_1
 
     # print(DF17_2)
@@ -2357,7 +2357,7 @@ def indexing_data5(request):
     XL = XL_File
     print(XL)
     excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
-    XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
+    #XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
     df_filepath_Exe1 = '/media/' + excel_filename_3
 
 # ************************************************ FROM HERE FOR FMEA *****************************************************************
@@ -2389,7 +2389,7 @@ def indexing_data5(request):
     DF17_1 = XL_File_1[XL_File_1['Geo'].isin(MSA_Name_1) & XL_File_1['Key'].isin(Theme_Name_1)]
     # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
     excel_filename_1_1 = "Indexing_report_FMEA_" + str(datetime.datetime.today().date()) + ".xlsx"
-    DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1_1)
+    #DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1_1)
     DF17_1_1 = '/media/' + excel_filename_1
     DF17_2_1 = len(XL_File_1)
     print(DF17_2_1)
@@ -2470,7 +2470,7 @@ def indexing_data5(request):
     XL_1 = XL_File_1
     print(XL_1)
     excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
-    XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
+    #XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
     df_filepath_Exe1_1 = '/media/' + excel_filename_4
     return render(request, 'CNXProtect_Utl/indexing5.html', {'Sent': Sent, 'MSA': MSA, 'Themes': Themes, 'Keyword': Keyword,
                                                              'File': File,'Sent_1': Sent_1, 'MSA_1': MSA_1, 'Themes_1': Themes_1, 'Keyword_1': Keyword_1,
