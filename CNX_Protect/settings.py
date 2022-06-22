@@ -13,9 +13,35 @@ from pathlib import Path
 # from import auth
 
 import webpage.apps
-
+import zipfile
+#from CNXProtect_Utl.models import Master_Data,Master_Data1
+import pandas as pd
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+#Reading Contract Master Data
+#contract_db = pd.DataFrame(Master_Data.objects.values('notesfile_1'), columns=['notesfile_1'])
+#X_File = BASE_DIR+"/media/" + contract_db.iloc[-1]['notesfile_1']
+#File_Tracker = BASE_DIR+"/media/" + contract_db.iloc[-2]['notesfile_1']
+print("Reading the Contract Files...")
+if not os.path.isdir(BASE_DIR+"/media/Master_File/contract_master_unzip"):
+    with zipfile.ZipFile(BASE_DIR+"/media/Master_File/contract_master.zip",'r') as zip_ref:
+        zip_ref.extractall(BASE_DIR+"/media/Master_File/contract_master_unzip")
+XL_File = pd.read_json(BASE_DIR+"/media/Master_File/contract_master_unzip/contract_master.json")
+FileTracker = pd.read_json(BASE_DIR+"/media/Master_File/contract_filetrack.json")
+print("Read the Contract Files")
+
+#Reading FMEA Master Data
+#fmea_db = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
+#X_File_1 = BASE_DIR+"/media/" + contract_db.iloc[-1]['notesfile_11']
+#File_Tracker_1 = BASE_DIR+"/media/" + contract_db.iloc[-2]['notesfile_11']
+print("Reading the FMEA Files...")
+if not os.path.isdir(BASE_DIR+"/media/Master_File1/fmea_master_unzip"):
+    with zipfile.ZipFile(BASE_DIR+"/media/Master_File1/fmea_master.zip",'r') as zip_ref:
+        zip_ref.extractall(BASE_DIR+"/media/Master_File1/fmea_master_unzip")
+XL_File_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_master_unzip/fmea_master.json")
+FileTracker_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_filetrack.json")
+print("Read the FMEA Files")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
