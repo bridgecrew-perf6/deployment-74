@@ -1,6 +1,6 @@
 import keyword
 from urllib import response
-
+import zipfile
 from dill import objects
 from django.core.files.storage import FileSystemStorage
 import pandas as pd
@@ -2272,8 +2272,14 @@ def indexing_data5(request):
     X_File = BASE_DIR+"/media/" + F_Count
     File_Tracker = BASE_DIR+"/media/" + F_Count1
     print("Reading the Contract Files...")
-    XL_File = pd.read_excel(X_File, usecols=['File_Name/DirName', 'Word', 'Theme/Topic', 'Sentence', 'MSA'])
-    FileTracker = pd.read_excel(File_Tracker, usecols=['File_Name'])
+    #XL_File = pd.read_excel(X_File, usecols=['File_Name/DirName', 'Word', 'Theme/Topic', 'Sentence', 'MSA'])
+    #FileTracker = pd.read_excel(File_Tracker, usecols=['File_Name'])
+    if not os.path.isdir(BASE_DIR+"/media/Master_File/contract_master_unzip"):
+        with zipfile.ZipFile(BASE_DIR+"/media/Master_File/contract_master.zip",'r') as zip_ref:
+            print(BASE_DIR+"/media/Master_File/contract_master.zip")
+            zip_ref.extractall(BASE_DIR+"/media/Master_File/contract_master_unzip")
+    XL_File = pd.read_json(BASE_DIR+"/media/Master_File/contract_master_unzip/contract_master.json")
+    FileTracker = pd.read_json(BASE_DIR+"/media/Master_File/contract_filetrack.json")
     print("Read the Contract Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name = request.GET.getlist('MSA_1')
@@ -2378,8 +2384,13 @@ def indexing_data5(request):
     X_File_1 = BASE_DIR+"/media/" + F_Count_1
     File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
     print("Reading the FMEA Files...")
-    XL_File_1 = pd.read_excel(X_File_1, usecols=['FileName', 'Key', 'Sentance', 'Theme/Topic', 'Geo', 'MSA'])
-    FileTracker_1 = pd.read_excel(File_Tracker_1, usecols=['FileName'])
+    #XL_File_1 = pd.read_excel(X_File_1, usecols=['FileName', 'Key', 'Sentance', 'Theme/Topic', 'Geo', 'MSA'])
+    #FileTracker_1 = pd.read_excel(File_Tracker_1, usecols=['FileName'])
+    if not os.path.isdir(BASE_DIR+"/media/Master_File1/fmea_master_unzip"):
+        with zipfile.ZipFile(BASE_DIR+"/media/Master_File1/fmea_master.zip",'r') as zip_ref:
+            zip_ref.extractall(BASE_DIR+"/media/Master_File1/fmea_master_unzip")
+    XL_File_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_master_unzip/fmea_master.json")
+    FileTracker_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_filetrack.json")
     print("Read the FMEA Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name_1 = request.GET.getlist('Geo')
