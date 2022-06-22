@@ -106,22 +106,22 @@ def experiment(request):
 
 
 def experiment2(request):
-    if request.method == "POST":
-        notesfile_1 = request.FILES['notesfile_1']
-        p = notesfile_1
-        # p1 = file.notesfile
-        a = Master_Data(notesfile_1=notesfile_1)
-        a.save()
-    p3 = Master_Data.objects.values('notesfile_1')
+    #if request.method == "POST":
+    #    notesfile_1 = request.FILES['notesfile_1']
+    #    p = notesfile_1
+    #    # p1 = file.notesfile
+    #    a = Master_Data(notesfile_1=notesfile_1)
+    #    a.save()
+    #p3 = Master_Data.objects.values('notesfile_1')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p4 = pd.DataFrame(p3, columns=['notesfile_1'])
-    print(p4)
-    F_Len = len(p4.iloc[:]['notesfile_1'])
-    print(F_Len)
-    F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = BASE_DIR+"/media/" + F_Count
-    print(X_File)
-    XL_File = pd.read_excel(X_File)
+    #p4 = pd.DataFrame(p3, columns=['notesfile_1'])
+    #print(p4)
+    #F_Len = len(p4.iloc[:]['notesfile_1'])
+    #print(F_Len)
+    #F_Count = p4.iloc[F_Len - 1]['notesfile_1']
+    #X_File = BASE_DIR+"/media/" + F_Count
+    #print(X_File)
+    #XL_File = pd.read_excel(X_File)
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name = request.GET.getlist('MSA_1')
     print("List of MSA", MSA_Name)
@@ -140,48 +140,48 @@ def experiment2(request):
     excel_filename_1 = "Contract_Library_Results_" + str(datetime.datetime.today().date()) + ".xlsx"
     DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
     DF17_1 = '/media/' + excel_filename_1
-    print(DF17)
+    #print(DF17)
 
 
 # For Downloads
-    if request.method == "POST":
-        notesfile_1 = request.FILES['notesfile_1']
-        p = notesfile_1
-        # p1 = file.notesfile
-        a = Master_Data(notesfile_1=notesfile_1)
-        a.save()
-    p3 = Master_Data.objects.values('notesfile_1')
+    #if request.method == "POST":
+    #    notesfile_1 = request.FILES['notesfile_1']
+    #    p = notesfile_1
+    #    # p1 = file.notesfile
+    #    a = Master_Data(notesfile_1=notesfile_1)
+    #    a.save()
+    #p3 = Master_Data.objects.values('notesfile_1')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p4 = pd.DataFrame(p3, columns=['notesfile_1'])
-    print(p4)
-    F_Len = len(p4.iloc[:]['notesfile_1'])
-    print(F_Len)
-    F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    X_File = BASE_DIR+"/media/" + F_Count
-    XL_File = pd.read_excel(X_File)
-    excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
-    XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
-    df_filepath_Exe1 = '/media/' + excel_filename_3
+    #p4 = pd.DataFrame(p3, columns=['notesfile_1'])
+    #print(p4)
+    #F_Len = len(p4.iloc[:]['notesfile_1'])
+    #print(F_Len)
+    #F_Count = p4.iloc[F_Len - 1]['notesfile_1']
+    #X_File = BASE_DIR+"/media/" + F_Count
+    #XL_File = pd.read_excel(X_File)
+    #excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    #XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
+    #df_filepath_Exe1 = '/media/' + excel_filename_3
 
     # ************************************************ FROM HERE FOR FMEA *****************************************************************
-    if request.method == "POST":
-        notesfile_11 = request.FILES['notesfile_11']
-        p = notesfile_11
-        # p1 = file.notesfile
-        a = Master_Data1(notesfile_11=notesfile_11)
-        a.save()
-    p5 = Master_Data1.objects.values('notesfile_11')
+    #if request.method == "POST":
+    #    notesfile_11 = request.FILES['notesfile_11']
+    #    p = notesfile_11
+    #    # p1 = file.notesfile
+    #    a = Master_Data1(notesfile_11=notesfile_11)
+    #    a.save()
+    #p5 = Master_Data1.objects.values('notesfile_11')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p6 = pd.DataFrame(p5, columns=['notesfile_11'])
-    print(p6)
-    F_Len = len(p6.iloc[:]['notesfile_11'])
-    print(F_Len)
-    F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
-    X_File_1 = BASE_DIR+"/media/" + F_Count_1
-    XL_File_1 = pd.read_excel(X_File_1)
-    excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
-    XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
-    df_filepath_Exe1_1 = '/media/' + excel_filename_4
+    #p6 = pd.DataFrame(p5, columns=['notesfile_11'])
+    #print(p6)
+    #F_Len = len(p6.iloc[:]['notesfile_11'])
+    #print(F_Len)
+    #F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
+    #X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    #XL_File_1 = pd.read_excel(X_File_1)
+    #excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    #XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
+    #df_filepath_Exe1_1 = '/media/' + excel_filename_4
 
     # print(pd.DataFrame(MSA_Name))
     # Account = XL_File['MSA'].unique()
@@ -205,7 +205,7 @@ def experiment2(request):
     # DF1_5 = DF15.to_string(index=False).rjust(10)
     # DF1_6 = DF16.to_string(index=False).rjust(10)
 
-    return render(request, 'CNXProtect_Utl/experiment2.html', {'DF17_1': DF17_1, 'df_filepath_Exe1':df_filepath_Exe1, 'df_filepath_Exe1_1':df_filepath_Exe1_1})
+    return render(request, 'CNXProtect_Utl/experiment2.html', {'DF17_1': DF17_1})#, 'df_filepath_Exe1':df_filepath_Exe1, 'df_filepath_Exe1_1':df_filepath_Exe1_1})
                   # {'Account': Account,
                        # 'DF1_1': DF1_1, 'DF1_2': DF1_2, 'DF1_3': DF1_3, 'DF1_4': DF1_4, 'DF1_5': DF1_5, 'DF1_6': DF1_6})
 
