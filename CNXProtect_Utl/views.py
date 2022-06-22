@@ -10,7 +10,7 @@ from django.views import generic
 from .models import Master_Data
 import os, datetime
 from django.contrib import messages
-from CNX_Protect.settings import BASE_DIR
+from CNX_Protect.settings import BASE_DIR, XL_File, FileTracker, XL_File_1, FileTracker_1
 from django.contrib.auth.models import auth
 from django.http import HttpRequest, Http404
 from django.shortcuts import render, redirect
@@ -2255,32 +2255,32 @@ def indexing_data4(request):
 
 def indexing_data5(request):
     # return render(request, 'CNXProtect_Utl/indexing5.html',{'DF17_3': 700})
-    if request.method == "POST":
-        notesfile_1 = request.FILES['notesfile_1']
-        p = notesfile_1
-        # p1 = file.notesfile
-        a = Master_Data(notesfile_1=notesfile_1)
-        a.save()
+    #if request.method == "POST":
+    #    notesfile_1 = request.FILES['notesfile_1']
+    #    p = notesfile_1
+    #    # p1 = file.notesfile
+    #    a = Master_Data(notesfile_1=notesfile_1)
+    #    a.save()
     #p3 = Master_Data.objects.values('notesfile_1')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p4 = pd.DataFrame(Master_Data.objects.values('notesfile_1'), columns=['notesfile_1'])
+    #p4 = pd.DataFrame(Master_Data.objects.values('notesfile_1'), columns=['notesfile_1'])
     #print(p4)
-    F_Len = len(p4.iloc[:]['notesfile_1'])
+    #F_Len = len(p4.iloc[:]['notesfile_1'])
     #print(F_Len)
-    F_Count = p4.iloc[F_Len - 1]['notesfile_1']
-    F_Count1 = p4.iloc[F_Len - 2]['notesfile_1']
-    X_File = BASE_DIR+"/media/" + F_Count
-    File_Tracker = BASE_DIR+"/media/" + F_Count1
-    print("Reading the Contract Files...")
+    #F_Count = p4.iloc[F_Len - 1]['notesfile_1']
+    #F_Count1 = p4.iloc[F_Len - 2]['notesfile_1']
+    #X_File = BASE_DIR+"/media/" + F_Count
+    #File_Tracker = BASE_DIR+"/media/" + F_Count1
+    #print("Reading the Contract Files...")
     #XL_File = pd.read_excel(X_File, usecols=['File_Name/DirName', 'Word', 'Theme/Topic', 'Sentence', 'MSA'])
     #FileTracker = pd.read_excel(File_Tracker, usecols=['File_Name'])
-    if not os.path.isdir(BASE_DIR+"/media/Master_File/contract_master_unzip"):
-        with zipfile.ZipFile(BASE_DIR+"/media/Master_File/contract_master.zip",'r') as zip_ref:
-            print(BASE_DIR+"/media/Master_File/contract_master.zip")
-            zip_ref.extractall(BASE_DIR+"/media/Master_File/contract_master_unzip")
-    XL_File = pd.read_json(BASE_DIR+"/media/Master_File/contract_master_unzip/contract_master.json")
-    FileTracker = pd.read_json(BASE_DIR+"/media/Master_File/contract_filetrack.json")
-    print("Read the Contract Files")
+    #if not os.path.isdir(BASE_DIR+"/media/Master_File/contract_master_unzip"):
+    #    with zipfile.ZipFile(BASE_DIR+"/media/Master_File/contract_master.zip",'r') as zip_ref:
+    #        print(BASE_DIR+"/media/Master_File/contract_master.zip")
+    #        zip_ref.extractall(BASE_DIR+"/media/Master_File/contract_master_unzip")
+    #XL_File = pd.read_json(BASE_DIR+"/media/Master_File/contract_master_unzip/contract_master.json")
+    #FileTracker = pd.read_json(BASE_DIR+"/media/Master_File/contract_filetrack.json")
+    #print("Read the Contract Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name = request.GET.getlist('MSA_1')
     #print(MSA_Name)
@@ -2367,31 +2367,31 @@ def indexing_data5(request):
     df_filepath_Exe1 = '/media/' + excel_filename_3
 
 # ************************************************ FROM HERE FOR FMEA *****************************************************************
-    if request.method == "POST":
-        notesfile_11 = request.FILES['notesfile_11']
-        p = notesfile_11
-        # p1 = file.notesfile
-        a = Master_Data1(notesfile_11=notesfile_11)
-        a.save()
+    #if request.method == "POST":
+    #    notesfile_11 = request.FILES['notesfile_11']
+    #    p = notesfile_11
+    #    # p1 = file.notesfile
+    #    a = Master_Data1(notesfile_11=notesfile_11)
+    #    a.save()
     #p5 = Master_Data1.objects.values('notesfile_11')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p6 = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
+    #p6 = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
     #print(p6)
-    F_Len = len(p6.iloc[:]['notesfile_11'])
+    #F_Len = len(p6.iloc[:]['notesfile_11'])
     #print(F_Len)
-    F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
-    F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
-    X_File_1 = BASE_DIR+"/media/" + F_Count_1
-    File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
-    print("Reading the FMEA Files...")
+    #F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
+    #F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
+    #X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    #File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
+    #print("Reading the FMEA Files...")
     #XL_File_1 = pd.read_excel(X_File_1, usecols=['FileName', 'Key', 'Sentance', 'Theme/Topic', 'Geo', 'MSA'])
     #FileTracker_1 = pd.read_excel(File_Tracker_1, usecols=['FileName'])
-    if not os.path.isdir(BASE_DIR+"/media/Master_File1/fmea_master_unzip"):
-        with zipfile.ZipFile(BASE_DIR+"/media/Master_File1/fmea_master.zip",'r') as zip_ref:
-            zip_ref.extractall(BASE_DIR+"/media/Master_File1/fmea_master_unzip")
-    XL_File_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_master_unzip/fmea_master.json")
-    FileTracker_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_filetrack.json")
-    print("Read the FMEA Files")
+    #if not os.path.isdir(BASE_DIR+"/media/Master_File1/fmea_master_unzip"):
+    #    with zipfile.ZipFile(BASE_DIR+"/media/Master_File1/fmea_master.zip",'r') as zip_ref:
+    #        zip_ref.extractall(BASE_DIR+"/media/Master_File1/fmea_master_unzip")
+    #XL_File_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_master_unzip/fmea_master.json")
+    #FileTracker_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_filetrack.json")
+    #print("Read the FMEA Files")
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name_1 = request.GET.getlist('Geo')
     #print(MSA_Name_1)
