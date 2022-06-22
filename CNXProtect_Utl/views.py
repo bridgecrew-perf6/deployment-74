@@ -211,30 +211,32 @@ def experiment2(request):
 
     # return render(request, 'CNXProtect_Utl/experiment.html')
 
-
 def FMEA_Indexing(request):
-    if request.method == "POST":
-        notesfile_11 = request.FILES['notesfile_11']
-        p = notesfile_11
-        # p1 = file.notesfile
-        # a = Master_Data1(notesfile_11=notesfile_11)
-        a = Master_Data1(notesfile_11=notesfile_11)
-        a.save()
-    p3 = Master_Data1.objects.values('notesfile_11')
-    # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p4 = pd.DataFrame(p3, columns=['notesfile_11'])
-    print(p4)
-    F_Len = len(p4.iloc[:]['notesfile_11'])
-    print(F_Len)
-    F_Count = p4.iloc[F_Len - 1]['notesfile_11']
-    X_File = BASE_DIR+"/media/" + F_Count
-    print(X_File)
-    XL_File = pd.read_excel(X_File)
-    # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
-    MSA_Name = request.GET.getlist('MSA_1')
-    print("List of MSA", MSA_Name)
-    Theme_Name = request.GET.getlist('Theme')
-    Geo_Name = request.GET.getlist('Geo')
+    return render(request, 'CNXProtect_Utl/FMEA_Indexing.html')    
+
+#def FMEA_Indexing(request):
+#    if request.method == "POST":
+#        notesfile_11 = request.FILES['notesfile_11']
+#        p = notesfile_11
+#        # p1 = file.notesfile
+#        # a = Master_Data1(notesfile_11=notesfile_11)
+#        a = Master_Data1(notesfile_11=notesfile_11)
+#        a.save()
+#    p3 = Master_Data1.objects.values('notesfile_11')
+#    # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
+#    p4 = pd.DataFrame(p3, columns=['notesfile_11'])
+#    print(p4)
+#    F_Len = len(p4.iloc[:]['notesfile_11'])
+#    print(F_Len)
+#    F_Count = p4.iloc[F_Len - 1]['notesfile_11']
+#    X_File = BASE_DIR+"/media/" + F_Count
+#    print(X_File)
+#    XL_File = pd.read_excel(X_File)
+#    # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
+#    MSA_Name = request.GET.getlist('MSA_1')
+#    print("List of MSA", MSA_Name)
+#    Theme_Name = request.GET.getlist('Theme')
+#    Geo_Name = request.GET.getlist('Geo')
     # Time_in = request.GET['InputTime']
     # Time_out = request.GET['OutputTime']
     # mask = (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)
@@ -244,12 +246,12 @@ def FMEA_Indexing(request):
     # print(Time_in)
     # print(Time_out)
 
-    DF17 = XL_File[XL_File['MSA'].isin(MSA_Name) & XL_File['Key'].isin(Theme_Name) & XL_File['Geo'].isin(Geo_Name)]
-    # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
-    excel_filename_1 = "Indexing_report_" + str(datetime.datetime.today().date()) + ".xlsx"
-    DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
-    DF17_1 = '/media/' + excel_filename_1
-    print("The results are:", DF17)
+ #   DF17 = XL_File[XL_File['MSA'].isin(MSA_Name) & XL_File['Key'].isin(Theme_Name) & XL_File['Geo'].isin(Geo_Name)]
+ #   # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
+ #   excel_filename_1 = "Indexing_report_" + str(datetime.datetime.today().date()) + ".xlsx"
+ #   DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
+ #   DF17_1 = '/media/' + excel_filename_1
+ #   print("The results are:", DF17)
 
     # print(pd.DataFrame(MSA_Name))
     # Account = XL_File['MSA'].unique()
@@ -273,7 +275,7 @@ def FMEA_Indexing(request):
     # DF1_5 = DF15.to_string(index=False).rjust(10)
     # DF1_6 = DF16.to_string(index=False).rjust(10)
 
-    return render(request, 'CNXProtect_Utl/FMEA_Indexing.html',{'DF17_1':DF17_1})
+#    return render(request, 'CNXProtect_Utl/FMEA_Indexing.html',{'DF17_1':DF17_1})
                   # {'Account': Account,
                        # 'DF1_1': DF1_1, 'DF1_2': DF1_2, 'DF1_3': DF1_3, 'DF1_4': DF1_4, 'DF1_5': DF1_5, 'DF1_6': DF1_6})
 
@@ -2114,41 +2116,41 @@ def indexing1(request):
 
 
 def indexing_data2(request):
-    if request.method == "POST":
-        notesfile_11 = request.FILES['notesfile_11']
-        p = notesfile_11
-        # p1 = file.notesfile
-        a = Master_Data1(notesfile_11=notesfile_11)
-        a.save()
-    p5 = Master_Data1.objects.values('notesfile_11')
+    #if request.method == "POST":
+    #    notesfile_11 = request.FILES['notesfile_11']
+    #    p = notesfile_11
+    #    # p1 = file.notesfile
+    #    a = Master_Data1(notesfile_11=notesfile_11)
+    #    a.save()
+    #p5 = Master_Data1.objects.values('notesfile_11')
     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
-    p6 = pd.DataFrame(p5, columns=['notesfile_11'])
-    print(p6)
-    F_Len = len(p6.iloc[:]['notesfile_11'])
-    print(F_Len)
-    F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
-    F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
-    X_File_1 = BASE_DIR+"/media/" + F_Count_1
-    File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
-    print("The output Master File is", X_File_1)
-    print(X_File_1)
-    XL_File_2 = pd.read_excel(X_File_1)
+    #p6 = pd.DataFrame(p5, columns=['notesfile_11'])
+    #print(p6)
+    #F_Len = len(p6.iloc[:]['notesfile_11'])
+    #print(F_Len)
+    #F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
+    #F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
+    #X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    #File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
+    #print("The output Master File is", X_File_1)
+    #print(X_File_1)
+    #XL_File_2 = pd.read_excel(X_File_1)
     # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
     MSA_Name = request.GET.getlist('MSA_1')
-    print("selected Theme:", MSA_Name)
+    #print("selected Theme:", MSA_Name)
     Theme_Name = request.GET.getlist('Theme')
     Geo_Name = request.GET.getlist('Geo')
-    print("Selected Key:", Theme_Name)
+    #print("Selected Key:", Theme_Name)
 
-    DF17 = XL_File_2[XL_File_2['MSA'].isin(MSA_Name) & XL_File_2['Key'].isin(Theme_Name) & XL_File_2['Geo'].isin(Geo_Name)]
+    DF17 = XL_File_1[XL_File_1['MSA'].isin(MSA_Name) & XL_File_1['Key'].isin(Theme_Name) & XL_File_1['Geo'].isin(Geo_Name)]
     # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
     excel_filename_1 = "FMEA_Results_" + str(datetime.datetime.today().date()) + ".xlsx"
     DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
     DF17_1 = '/media/' + excel_filename_1
-    print(DF17)
+    #print(DF17)
 
     # print(pd.DataFrame(MSA_Name))
-    Account = XL_File_2['Theme/Topic'].unique()
+    Account = XL_File_1['Theme/Topic'].unique()
     # DF11 = XL_File['MSA'].loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Theme/Topic'] == mask)]
     # (df['birth_date'] > start_date) & (df['birth_date'] <= end_date)
     # DF12 = XL_File['Word'].loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
