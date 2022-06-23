@@ -16,6 +16,8 @@ import webpage.apps
 import zipfile
 #from CNXProtect_Utl.models import Master_Data,Master_Data1
 import pandas as pd
+import nltk
+nltk.download('omw-1.4')
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
