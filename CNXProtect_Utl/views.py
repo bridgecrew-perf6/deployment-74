@@ -10,7 +10,7 @@ from django.views import generic
 from .models import Master_Data
 import os, datetime
 from django.contrib import messages
-from CNX_Protect.settings import BASE_DIR, XL_File, FileTracker, XL_File_1, FileTracker_1
+from CNX_Protect.settings import BASE_DIR, XL_File, FileTracker, XL_File_1, FileTracker_1, CONTRACT_MASTER_PATH, FMEA_MASTER_PATH
 from django.contrib.auth.models import auth
 from django.http import HttpRequest, Http404
 from django.shortcuts import render, redirect
@@ -2364,9 +2364,9 @@ def indexing_data5(request):
     DF17_2 = len(XL_File)
     #XL = XL_File
     #print(XL)
-    excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    #excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     #XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
-    df_filepath_Exe1 = '/media/' + excel_filename_3
+    #df_filepath_Exe1 = '/media/' + excel_filename_3
 
 # ************************************************ FROM HERE FOR FMEA *****************************************************************
     #if request.method == "POST":
@@ -2482,18 +2482,18 @@ def indexing_data5(request):
     File13_1 = File_1.iloc[13][70:]
     XL_1 = XL_File_1
     #print(XL_1)
-    excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    #excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
     #XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
-    df_filepath_Exe1_1 = '/media/' + excel_filename_4
+    #df_filepath_Exe1_1 = '/media/' + excel_filename_4
     return render(request, 'CNXProtect_Utl/indexing5.html', {'Sent': Sent, 'MSA': MSA, 'Themes': Themes, 'Keyword': Keyword,
                                                              'File': File,'Sent_1': Sent_1, 'MSA_1': MSA_1, 'Themes_1': Themes_1, 'Keyword_1': Keyword_1,
-                                                             'File_1': File_1, 'df_filepath_Exe1': df_filepath_Exe1, 'Account': Account,
+                                                             'File_1': File_1, 'df_filepath_Exe1': CONTRACT_MASTER_PATH, 'Account': Account,
                                                              'DF17_1': DF17_1, 'DF17_2': DF17_2, 'DF17_3': 700, 'Theme': Theme,
                                                              'keywords': keywords, 'File_No': File_No,
                                                              'Account_1': Account_1,
                                                              # 'DF17_1': DF17_1,  'DF17_3': 700,
                                                              'Records_1': Records_1,'Theme_1': Theme_1,
-                                                             'keywords_1': keywords_1, 'File_No_1': File_No_1,'df_filepath_Exe1_1':df_filepath_Exe1_1,
+                                                             'keywords_1': keywords_1, 'File_No_1': File_No_1,'df_filepath_Exe1_1':FMEA_MASTER_PATH,
                                                              'XL_1': XL_1, 'DF17_2_1': DF17_2_1,
 
                                                              'Sent1_1': Sent1_1, 'Sent2_1': Sent2_1, 'Sent3_1': Sent3_1, 'Sent4_1': Sent4_1, 'Sent5_1': Sent5_1,
