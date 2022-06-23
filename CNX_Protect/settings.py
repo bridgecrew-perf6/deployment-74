@@ -30,7 +30,7 @@ if not os.path.isdir(BASE_DIR+"/media/Master_File/contract_master_unzip"):
 XL_File = pd.read_json(BASE_DIR+"/media/Master_File/contract_master_unzip/contract_master.json")
 FileTracker = pd.read_json(BASE_DIR+"/media/Master_File/contract_filetrack.json")
 print("Read the Contract Files")
-
+CONTRACT_MASTER_PATH=BASE_DIR+"/media/Master_File/Output_19April22_Org_MSA.xlsx"
 #Reading FMEA Master Data
 #fmea_db = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
 #X_File_1 = BASE_DIR+"/media/" + contract_db.iloc[-1]['notesfile_11']
@@ -42,7 +42,7 @@ if not os.path.isdir(BASE_DIR+"/media/Master_File1/fmea_master_unzip"):
 XL_File_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_master_unzip/fmea_master.json")
 FileTracker_1 = pd.read_json(BASE_DIR+"/media/Master_File1/fmea_filetrack.json")
 print("Read the FMEA Files")
-
+FMEA_MASTER_PATH=BASE_DIR+"/media/Master_File1/FMEA_Output_20April22_Org_MSA_26716Zk.xlsx"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
