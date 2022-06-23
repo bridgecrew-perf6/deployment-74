@@ -1203,7 +1203,7 @@ def FM_Real(request):
     # fils  = [os.path.join(r,file) for r,d,f in os.walk(r"C:\Users\joyeeta.mallik\Concentrix Corporation\Bhawna Agnani - FMEA") for file in f]
 
     KW2 = Dictionary1.objects.values('keywords')
-    print(KW2)
+    #print(KW2)
     KW1 = pd.DataFrame(KW2, columns=['keywords'])
     # KW = KW1.at[:,'keywords']
     Dictionary_Word = KW1
@@ -1215,65 +1215,64 @@ def FM_Real(request):
     # print(F_Count)
     # print(p2)
     # KW = KW1.at[:,'keywords']
-    # p3 = p2.iloc[-1]['notesfile']
+    p3 = p2.iloc[-1]['notesfile_1']
     # p3 = p2
-    print(p2)
-    for p3 in p2.iloc[:]['notesfile_1']:
-        # print(p3)
-        pp = BASE_DIR+"/media/" + p3
-        # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
-        # p = BASE_DIR1+p3
-        print(pp)
-        # File.objects.all().delete()
-        # print(p)
-        # pdfFileObj = open(pp, 'rb')
-        plen = 0
-        p = pp
-        p1 = p
-        x = pp
-        File1 = pd.DataFrame()
-        FileTrack1 = pd.DataFrame()
-        # x = 'C://Users/RNALAB/Concentrix Corporation/Files_execute/FMEA/ABBOTT - Malaysia.xlsx'
-        xl = pd.ExcelFile(x)
-        for i in range(len(xl.sheet_names)):
-            file = pd.read_excel(x, sheet_name=xl.sheet_names[i])
-            sheetNam = xl.sheet_names[i]
-            print(sheetNam)
-            for k in range(0, Dictionary_Word.shape[1]):
-                for j in range(0, Dictionary_Word.shape[0]):
-                    if str(Dictionary_Word.iloc[j, k]) != 'nan':
-                        Key = Dictionary_Word.iloc[j, k]
-                        # print(Key)
-                        if flg == "lower":
-                            Ke = Key.lower()
-                            Ke = Ke + ' | ' + Ke + ' |' + Ke + '$'
-                        else:
-                            Ke = Key.lower()
-                            Ke = Ke + ' | ' + Ke + ' |' + Ke + '$|' + Key + ' | ' + Key + ' |' + Key + '$'
-                        file2 = xsearch(Key, file)
-                        file3 = file2.values.tolist()
-                        Rw = ''
-                        Cm = ''
-                        for l in range(len(file3)):
-                            Rw = file2.index[l]
-                            Cm = indexHaveSubstring(file3[l], Key)
-                            Rw = file2.index[l]
-                            Cm = indexHaveSubstring(file3[l], Key)
-                            if Cm != "" and Cm != []:
-                                # print(Key,Rw,Cm,x,sheetNam)
-                                if (len(Cm) > 1):
-                                    for i in range(len(Cm)):
-                                        SenTance = file.iloc[Rw, Cm[i]]
-                                        # print(SenTance)
-                                        df2 = pd.Series(
-                                            [Key, Dictionary_Word.columns[k], Rw, Cm[i], x, sheetNam, SenTance],
-                                            index=["Key", "Theme/Topic", "RowNum", "ColNum", "FileName",
-                                                   "SheetName", "Sentance"])
-                                        File1 = File1.append(df2, ignore_index=True)
-                                        print(File1)
-                                        df_read = pd.Series([x, "File", "read", "-"],
-                                                            index=["FileName", "Page", "Status", "CharCount"])
-                                        FileTrack1 = FileTrack1.append(df_read, ignore_index=True)
+    print(p3)
+    #for p3 in p2.iloc[:]['notesfile_1']:
+    pp = BASE_DIR+"/media/" + p3
+    # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
+    # p = BASE_DIR1+p3
+    print(pp)
+    # File.objects.all().delete()
+    # print(p)
+    # pdfFileObj = open(pp, 'rb')
+    plen = 0
+    p = pp
+    p1 = p
+    x = pp
+    File1 = pd.DataFrame()
+    FileTrack1 = pd.DataFrame()
+    # x = 'C://Users/RNALAB/Concentrix Corporation/Files_execute/FMEA/ABBOTT - Malaysia.xlsx'
+    xl = pd.ExcelFile(x)
+    for i in range(len(xl.sheet_names)):
+        file = pd.read_excel(x, sheet_name=xl.sheet_names[i])
+        sheetNam = xl.sheet_names[i]
+        print(sheetNam)
+        for k in range(0, Dictionary_Word.shape[1]):
+            for j in range(0, Dictionary_Word.shape[0]):
+                if str(Dictionary_Word.iloc[j, k]) != 'nan':
+                    Key = Dictionary_Word.iloc[j, k]
+                    # print(Key)
+                    if flg == "lower":
+                        Ke = Key.lower()
+                        Ke = Ke + ' | ' + Ke + ' |' + Ke + '$'
+                    else:
+                        Ke = Key.lower()
+                        Ke = Ke + ' | ' + Ke + ' |' + Ke + '$|' + Key + ' | ' + Key + ' |' + Key + '$'
+                    file2 = xsearch(Key, file)
+                    file3 = file2.values.tolist()
+                    Rw = ''
+                    Cm = ''
+                    for l in range(len(file3)):
+                        Rw = file2.index[l]
+                        Cm = indexHaveSubstring(file3[l], Key)
+                        Rw = file2.index[l]
+                        Cm = indexHaveSubstring(file3[l], Key)
+                        if Cm != "" and Cm != []:
+                            # print(Key,Rw,Cm,x,sheetNam)
+                            if (len(Cm) > 1):
+                                for i in range(len(Cm)):
+                                    SenTance = file.iloc[Rw, Cm[i]]
+                                    # print(SenTance)
+                                    df2 = pd.Series(
+                                        [Key, Dictionary_Word.columns[k], Rw, Cm[i], x, sheetNam, SenTance],
+                                        index=["Key", "Theme/Topic", "RowNum", "ColNum", "FileName",
+                                               "SheetName", "Sentance"])
+                                    File1 = File1.append(df2, ignore_index=True)
+                                    print(File1)
+                                    df_read = pd.Series([x, "File", "read", "-"],
+                                                        index=["FileName", "Page", "Status", "CharCount"])
+                                    FileTrack1 = FileTrack1.append(df_read, ignore_index=True)
 
             # from pyxlsb import open_workbook
             # try:
@@ -1324,10 +1323,10 @@ def FM_Real(request):
     # Dictionary1.objects.all().delete()
     DF = DF.append(File1)
 
-    FMDF1 = DF.Key.to_string(index=False)
+    #FMDF1 = DF.Key.to_string(index=False)
     # print(DF1.str.strip()) .format( left_aligned)
-    FMDF2 = DF.Sentance.to_string(index=False)
-    FMDF3 = DF.FileName.to_string(index=False).rjust(10)
+    #FMDF2 = DF.Sentance.to_string(index=False)
+    #FMDF3 = DF.FileName.to_string(index=False).rjust(10)
     # print(DF3)
     # File1.drop(labels=None, index=["Key", "Sentance", "FileName"])
     # DF4 = DF.Text_Summerization.to_string(index=False).rjust(10)
@@ -1335,7 +1334,7 @@ def FM_Real(request):
     File1.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
     df_filepath_out1_1 = '/media/' + excel_filename_2_1
 
-    return render(request, 'CNXProtect_Utl/FMEA_Real.html', {'df_filepath_out1_1': df_filepath_out1_1, 'FMDF1': FMDF1, 'FMDF2': FMDF2, 'FMDF3': FMDF3,})
+    return render(request, 'CNXProtect_Utl/FMEA_Real.html', {'df_filepath_out1_1': df_filepath_out1_1})
 
 
 def download(request, path):
@@ -2018,7 +2017,7 @@ def read_file1(request: HttpRequest):
     # error = ""
     if request.method == "POST":
         # if request.POST:
-        print("this is my first line")
+        #print("this is my first line")
         notesfile_1 = request.FILES['notesfile_1']
         p = notesfile_1
         # p1 = file.notesfile
@@ -2027,7 +2026,7 @@ def read_file1(request: HttpRequest):
         p1 = File_1.objects.values('notesfile_1')
         p2 = pd.DataFrame(p1, columns=['notesfile_1'])
         F_Count = len(p2.iloc[:]['notesfile_1'])
-        print(F_Count)
+        #print(F_Count)
         # print(p)        # p = File.objects.values('notesfile')
         # print(p)        # print("C:\Users\RNALAB\Concentrix Corporation\CNX_Protect\media\media" + p)
         messages.success(request,
