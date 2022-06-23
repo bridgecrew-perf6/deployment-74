@@ -131,22 +131,14 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-
     <ul class="sidebar-nav" id="sidebar-nav">
 <li class="nav-item">
-        <a class="nav-link " href="{% url 'indexing_data5' %}">
-          <i class="bi bi-grid"></i>
-          <span>Home</span>
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Home</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-
-<!--       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Out-Of-Box</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'experiment' %}">
+            <a href="{% url 'indexing1' %}">
               <i class="bi bi-circle"></i><span>Contract Library</span>
             </a>
           </li>
@@ -155,73 +147,10 @@
               <i class="bi bi-circle"></i><span>FMEA</span>
             </a>
           </li>
-
-        </ul>
-      </li><!-- End Components Nav --> -->
-
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">-->
-<!--          <i class="bi bi-journal-text"></i><span>On-Demand</span><i class="bi bi-chevron-down ms-auto"></i>-->
-<!--        </a>-->
-<!--        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
-<!--          <li>-->
-<!--            <a href="{% url 'Contract_Library1' %}">-->
-<!--              <i class="bi bi-circle"></i><span>Contract Library</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="{% url 'FMEA_Real' %}">-->
-<!--              <i class="bi bi-circle"></i><span>FMEA</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link collapsed" href="{% url 'score_card' %} ">-->
-<!--          <i class="bi bi-grid"></i>-->
-<!--          <span>Score card reader</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link collapsed" href="{% url 'pdfword' %} ">-->
-<!--          <i class="bi bi-grid"></i>-->
-<!--          <span>PDF2WORD</span>-->
-<!--        </a>-->
-<!--      </li>-->
-      <!-- End Dashboard Nav -->
-
-<!--      <li class="nav-item" href="{% url 'indexing_data5' %}">-->
-<!--        <a class="nav-link " href="{{df_filepath_Exe1}}" download rel="noopener noopener" target="_blank">-->
-<!--          <i class="ri-arrow-down-circle-line"></i>-->
-<!--          <span>Download</span>-->
-<!--        </a>-->
-<!--      </li>-->
-
-<!--       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="indexing5.html">
-          <i class="bi bi-journal-text"></i><span>Downloads</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a class="nav-link " href="{{df_filepath_Exe1}}" download rel="noopener noopener" target="_blank">
-              <i class="bi bi-circle"></i><span>Contract Library</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link " href="{{df_filepath_Exe1_1}}" download rel="noopener noopener" target="_blank">
-              <i class="bi bi-circle"></i><span>FMEA</span>
-            </a>
-          </li>
-
         </ul>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="https://app.powerbi.com/links/8OnEUJ60_5?ctid=599e51d6-2f8c-4347-8e59-1f795a51a98c&pbi_source=linkShare&bookmarkGuid=4d2dc58f-c1df-4981-997f-a54e1c8a8e31">
-          <i class="bi bi-grid"></i>
-          <span> BI Dashboard</span>
-        </a> -->
-
+      </ul>
+  </aside>
 
       <!-- End Forms Nav -->
 
