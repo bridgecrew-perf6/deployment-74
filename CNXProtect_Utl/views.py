@@ -675,309 +675,308 @@ def cl_files(request, context=None):
     # print(F_Count)
     # print(p2)
     # KW = KW1.at[:,'keywords']
-    # p3 = p2.iloc[-1]['notesfile']
+    p3 = p2.iloc[-1]['notesfile']
     # p3 = p2
-    print(p2)
-    for p3 in p2.iloc[:]['notesfile']:
-        # print(p3)
-        pp = BASE_DIR+"/media/" + p3
-        # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
-        # p = BASE_DIR1+p3
-        print(pp)
-        # File.objects.all().delete()
-        # print(p)
-        pdfFileObj = open(pp, "r+b")
-        plen = 0
-        p = pp
-        p1 = p
-        pdfReader = PyPDF4.PdfFileReader(pdfFileObj, strict=False)  ###   STRICT + FALSE ADDED TO REMOVE THE ERROR CHECK FOR ACCURACY
-        if not pdfReader.isEncrypted:
-            for k in range(0, Dictionary_Word.shape[1]):
-                for j in range(0, Dictionary_Word.shape[0]):
-                    Keyword_present = 1;
-                    if str(Dictionary_Word.iloc[j, k]) != 'nan':
-                        # for(m in splitted){
-                        # print(names(Dictionary[k]))
-                        #
-                        q = Dictionary_Word.iloc[j, k]
-                        print(q)
-                        tXt = "";
-                        PGtXt = ""
-                        for PG in range(pdfReader.numPages):
-                            PGNo = PG
-                            print(PGNo)
-                            pageObj = pdfReader.getPage(PG)
-                            PGtXt = pageObj.extractText()
-                            PGtXt = PGtXt.replace(
-                                ' !"#$%&\'()*+,-./012-345627\n3,&"8%))9"#:;3<%&$9=%)35\'&%%>%#?\n3,:\'%\n3@3',
-                                '').replace('!%3', '').replace('!&3', '').replace('!$3', '').replace('!#3', '').replace(
-                                '!"3', '').replace('!!3', '').replace('!*3', '').replace('!$3',
-                                                                                         '').replace('!*3', '').replace(
-                                '!3', '').replace('#3', '').replace('$3', '').replace('%3', '').replace("'3",
-                                                                                                        '').replace(
-                                '(3', '').replace(')3', '').replace('&3', '')
-                            tXt = tXt + '\n-\r-\n' + PGtXt
-                            tXt = tXt.lower()
-                            PGtXt = PGtXt.strip('\n');
-                            PGtXt = PGtXt.replace('\n', '');
-                            PGtXt = PGtXt.strip('\t');
-                            PGtXt = PGtXt.replace('\t', ' ');
-                            PGtXt = re.sub("\s+", ' ', PGtXt)
-                            # print("before plen", plen);
-                            plen = plen + len(PGtXt)
-                            # print("after plen", plen);
-                            PGt = split_into_sentences(PGtXt)
-                            if (flg == "lower"):
-                                patt = q.lower()
-                                PGt = [x.lower() for x in PGt]
-                            else:
-                                patt = q;
-                            ### tolower
-                            word = patt
-                            # print(q) #                    Test
-                            if '+DATE' in q:
-                                word = q.replace('+DATE', '')
-                                word = word.lower()
-                                PG1 = [[(word in x), PGt.index(x)] for x in PGt]
-                                PG2 = list(compress(PGt, [item[0] for item in PG1]))
-                                PG3 = [item[1] for item in PG1 if item[0] == True]
-                                PP1 = [[bool(re.search(dat, x)), PG2.index(x)] for x in PG2]
-                                PP2 = list(compress(PP1, [item[0] for item in PP1]))
-                                PP3 = [item[1] for item in PP1 if item[0] == True]
-                                PP4 = [PG2[item] for item in PP3]
-                            elif '+' in patt:
-                                word = word.split(sep='+')
-                                dat = word[1]
-                                PG1 = [[(word[0] in x), PGt.index(x)] for x in PGt]
-                                PG2 = list(compress(PGt, [item[0] for item in PG1]))
-                                PG3 = [item[1] for item in PG1 if item[0] == True]
-                                PP1 = [[bool(dat in x), PG2.index(x)] for x in PG2]
-                                PP2 = list(compress(PP1, [item[0] for item in PP1]))
-                                PP3 = [item[1] for item in PP1 if item[0] == True]
-                                PP4 = [PG2[item] for item in PP3]
-                            else:
-                                PG1 = [
-                                    [((' ' + word + ' ' in x) or (word + ' ' in x) or (word + '.' in x)), PGt.index(x)]
-                                    for x in PGt]
-                                # PG2 = list(compress(PGt,[item[0] for item in PG1]))
-                                PG2 = (compress(PGt, [item[0] for item in PG1]))
-                                PG3 = [item[1] for item in PG1 if item[0] == True]
-                                PP3 = PG3
-                                import numpy as np
-                                if PP3 != []:
-                                    Pp3 = (np.array(PP3));
-                                    print(len(Pp3));
-                                    for lst in range(len(Pp3)):
-                                        PP5 = Pp3[lst];
-                                        # if (len(PGt[PP5]) < 250) and (PP5 < len(PGt) - 1):
-                                        #     # Sentenses are:
-                                        #     PP6 = PGt[PP5 - 1] + PGt[PP5] + PGt[PP5 + 1]
-                                        # else:
-                                        #     PP6 = PGt[PP5]
-                                        # PP5 = Pp3[lst];
-                                        if (len(PGt[PP5]) < 250) and (PP5 < len(PGt) - 1):
-                                            # Sentenses are:
-                                            PP6 = PGt[PP5 - 1] + PGt[PP5] + PGt[PP5 + 1]
-                                        else:
-                                            PP6 = PGt[PP5]
-                                            # print(PGt)
-                                        Keyword_present += Keyword_present;
-                                        before_keyword, keyword, after_keyword = PP6.partition(q)
-                                        l1 = []
-                                        l1.append(before_keyword[0:20])
-                                        l1.append(keyword)
-                                        l1.append(after_keyword[0:70])
-                                        # print("actual words", PP6)
-                                        # print("Few words",l1)
-                                        # Few_words = re.search(q, PP6)
-                                        # print("Few words", Few_words)
-                                        # Few_words = re.compile(q.lower()).search(PP6)
-                                        # print('keyword:', q,'\n')
-                                        # print("Sentence:", PP6,'\n')
-                                        # text analysis starts here:PP
-                                        Main_sentance = []
-                                        sents = nltk.sent_tokenize(PP6.lower())
-                                        No_of_word = len(sents[0])
-                                        No_of_Line = int(No_of_word / 75)
-                                        lemmatizer = WordNetLemmatizer()
-                                        Ph_number = [];
-                                        Tagged_word = [];
-                                        for i in range(len(sents)):
-                                            emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", sents[i])
-                                            # print(emails)
-                                            if len(emails) != 0:
-                                                Ph_number = re.findall(
-                                                    r"((?:\+\d{2}[-\.\s]??|\d{4}[-\.\s]??)?(?:\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}))",
-                                                    sents[i])
-                                                words = nltk.word_tokenize(sents[i])
-                                                POS = nltk.pos_tag(words)
-                                                # print('POS tagging:', POS, '\n')
-                                                Tagged_word = []
-                                                for words, tag in POS:
-                                                    if (tag == 'CD' or tag == 'NNS'):
-                                                        Tagged_word.append(words)
-                                                # print('Tagged_words:', Tagged_word, '\n')
-
-                                            words = nltk.word_tokenize(sents[i])
-                                            words = [lemmatizer.lemmatize(word) for word in words if
-                                                     word not in set(stopwords.words('english'))]
-                                            sents[i] = ' '.join(words)
-                                            # punctuation = punctuation +'\n'
-                                            for punctuation in string.punctuation:
-                                                sents[i] = sents[i].replace(punctuation, '')
-                                            # print('keyword:', q, '\n')
-                                            # print('lemmatizer:', sents,'\n')
-                                            # print('punctuation:', sents,'\n')
-                                            wordss = nltk.word_tokenize(sents[i])
-                                            POS = nltk.pos_tag(wordss)
-                                            # print("\n")
-                                            # print('POS tagging:', POS,'\n')
-                                            Tagged_words = []
-                                            for wordss, tag in POS:
-                                                if (tag == 'NN' or tag == 'JJ'):
-                                                    Tagged_words.append(wordss)
-
-                                            # print('Tagged_words:', Tagged_words,'\n')
-                                        # Frq = Tagged_words.count(q.lower())
-                                        Sum_sentence = list()
-                                        Key_list = sorted(q.split(), key=len)
-                                        if len(Key_list) == 1:
-                                            KEY = Key_list[0]
-                                        else:
-                                            KEY = Key_list[-1]
-
-                                        for j in range(len(Tagged_words)):
-                                            # subsent = re.compile(Key_list[-1].lower()).search(Tagged_words[j])
-                                            subsent = re.compile(KEY.lower()).search(Tagged_words[j])
-                                            # print(subsent)
-                                            if subsent != None:
-                                                Sum_sentence.append(j)
-                                        Cm = Sum_sentence
-                                        Column_size = Cm
-
-                                        if Cm != "" and Cm != []:
-                                            if (len(Cm) > 0):
-                                                for i in range(len(Cm)):
-                                                    SenTance = Tagged_words[Cm[i]]
-                                                    SenTance1 = [];
-                                                    SenTance2 = [];
-                                                    Main_sentance1 = "";
-                                                    Main_sentance = [];
-                                                    if (Cm[i] < len(Tagged_words) - 2):
-                                                        SenTance2_1 = Tagged_words[Cm[i] + 1];
-                                                        SenTance2_2 = Tagged_words[Cm[i] + 2]
-                                                        SenTance2.append(SenTance2_1)
-                                                        SenTance2.append(SenTance2_2)
-                                                    else:
-                                                        SenTance2_3 = Tagged_words[Cm[i]]
-                                                        SenTance2.append(SenTance2_3)
-                                                    if (Cm[i] != 0):
-                                                        SenTance1_1 = Tagged_words[Cm[i] - 1];
-                                                        SenTance1_2 = Tagged_words[Cm[i] - 2];
-                                                        SenTance1.append(SenTance1_2)
-                                                        SenTance1.append(SenTance1_1)
-                                                    else:
-                                                        SenTance1_3 = Tagged_words[Cm[i]]
-                                                        SenTance1.append(SenTance1_3)
-
-                                                    # Main_sentance.append(SenTance3)
-                                                    SENT_1 = SenTance1
-                                                    # Main_sentance.append(SenTance)
-                                                    SENT_2 = SenTance2
-                                                    # Main_sentance =
-                                                    Main_sentance.append(SENT_1)
-                                                    # Main_sentance =
-                                                    Main_sentance.append(SENT_2)
-                                                    # Main_sentance.append(SenTance4)
-                                                    del SenTance1, SenTance2
-                                                    # print("\n")
-                                        # Txt_Anlys = ' '.join(Main_sentance);
-                                        Main_sentance1 = Main_sentance
-                                        Txt_Anlys = numpy.asarray(Main_sentance1)
-                                        Txt_Anlys1 = list(np.unique(Txt_Anlys))
-                                        # print(numpy.asarray(Main_sentance1))
-                                        Frq = Tagged_words.count(SenTance)
-                                        if (".pdf" in p and len(tXt) < 150):
-                                            ImagePDF = "Image PDF"
-                                        else:
-                                            ImagePDF = 'Proper PDF File'
-                                        Statement = SenTance, "for", Txt_Anlys1;
-                                        PP7 = PP6[1:80]
-                                        # print(PP7)
-                                        df = pd.Series(
-                                            [p1, p3[6:], q, PP6, PP5, PG, Txt_Anlys, Frq, No_of_word,
-                                             No_of_Line, l1, emails, Ph_number, Tagged_word],
-                                            index=["File_Name", "file_list", "Word", "Sentence", "Sentence_No",
-                                                   "Page_No", "Text_Summerization",
-                                                   "Frequency_of_Keyword", "No_of_word_in_the_paragraph",
-                                                   "No_of_Line_in_the_parapraph", "Few_words", "Email_ID", "Ph_number",
-                                                   "Tagged_word"])
-                                        df1 = df1.append(df, ignore_index=True)
-                                        # print("Keyword:", q)
-                                        # print(Statement)
-                        if Keyword_present <= 1:
-                            PP6 = "Keyword not present"
-                            PP7 = "Keyword not present"
-                            PP5 = "Nill"
-                            l1 = "Keyword is not present"
-                            PG = "Nill"
-                            Txt_Anlys = "Keyword is not present for analysis"
-                            emails = "Nill"
-                            Ph_number = "Nill"
-                            Statement = "Keyword is not present for analysis"
-                            Frq = "Nill"
-                            No_of_word = "Nil"
-                            No_of_Line = "Nil"
-                            Tagged_word = " Nil"
-
-                            df = pd.Series(
-                                [p1, p3[6:], q, PP6, PP5, PG, Txt_Anlys, Frq, No_of_word,
-                                 No_of_Line, l1, emails, Ph_number, Tagged_word],
-                                index=["File_Name", "file_list", "Word", "Sentence", "Sentence_No", "Page_No",
-                                       "Text_Summerization",
-                                       "Frequency_of_Keyword", "No_of_word_in_the_paragraph",
-                                       "No_of_Line_in_the_parapraph", "Few_words", "Email_ID", "Ph_number",
-                                       "Tagged_word"])
-                            df1 = df1.append(df, ignore_index=True)
+    print(p3)
+    #for p3 in p2.iloc[:]['notesfile']:
+    pp = BASE_DIR+"/media/" + p3
+    # BASE_DIR1 = os.path.join(BASE_DIR, 'media')
+    # p = BASE_DIR1+p3
+    print(pp)
+    # File.objects.all().delete()
+    # print(p)
+    print("Reading File")
+    pdfFileObj = open(pp, "r+b")
+    plen = 0
+    p = pp
+    p1 = p
+    pdfReader = PyPDF4.PdfFileReader(pdfFileObj, strict=False)  ###   STRICT + FALSE ADDED TO REMOVE THE ERROR CHECK FOR ACCURACY
+    if not pdfReader.isEncrypted:
+        for k in range(0, Dictionary_Word.shape[1]):
+            for j in range(0, Dictionary_Word.shape[0]):
+                Keyword_present = 1;
+                if str(Dictionary_Word.iloc[j, k]) != 'nan':
+                    # for(m in splitted){
+                    # print(names(Dictionary[k]))
+                    #
+                    q = Dictionary_Word.iloc[j, k]
+                    print(q)
+                    tXt = "";
+                    PGtXt = ""
+                    for PG in range(pdfReader.numPages):
+                        PGNo = PG
+                        print(PGNo)
+                        pageObj = pdfReader.getPage(PG)
+                        PGtXt = pageObj.extractText()
+                        PGtXt = PGtXt.replace(
+                            ' !"#$%&\'()*+,-./012-345627\n3,&"8%))9"#:;3<%&$9=%)35\'&%%>%#?\n3,:\'%\n3@3',
+                            '').replace('!%3', '').replace('!&3', '').replace('!$3', '').replace('!#3', '').replace(
+                            '!"3', '').replace('!!3', '').replace('!*3', '').replace('!$3',
+                                                                                     '').replace('!*3', '').replace(
+                            '!3', '').replace('#3', '').replace('$3', '').replace('%3', '').replace("'3",
+                                                                                                    '').replace(
+                            '(3', '').replace(')3', '').replace('&3', '')
+                        tXt = tXt + '\n-\r-\n' + PGtXt
+                        tXt = tXt.lower()
+                        PGtXt = PGtXt.strip('\n');
+                        PGtXt = PGtXt.replace('\n', '');
+                        PGtXt = PGtXt.strip('\t');
+                        PGtXt = PGtXt.replace('\t', ' ');
+                        PGtXt = re.sub("\s+", ' ', PGtXt)
+                        # print("before plen", plen);
+                        plen = plen + len(PGtXt)
+                        # print("after plen", plen);
+                        PGt = split_into_sentences(PGtXt)
+                        if (flg == "lower"):
+                            patt = q.lower()
+                            PGt = [x.lower() for x in PGt]
                         else:
-                            Statement1 = Statement;
-                            Keyword = q;
-                            Txt_Anlys1 = Txt_Anlys;
+                            patt = q;
+                        ### tolower
+                        word = patt
+                        # print(q) #                    Test
+                        if '+DATE' in q:
+                            word = q.replace('+DATE', '')
+                            word = word.lower()
+                            PG1 = [[(word in x), PGt.index(x)] for x in PGt]
+                            PG2 = list(compress(PGt, [item[0] for item in PG1]))
+                            PG3 = [item[1] for item in PG1 if item[0] == True]
+                            PP1 = [[bool(re.search(dat, x)), PG2.index(x)] for x in PG2]
+                            PP2 = list(compress(PP1, [item[0] for item in PP1]))
+                            PP3 = [item[1] for item in PP1 if item[0] == True]
+                            PP4 = [PG2[item] for item in PP3]
+                        elif '+' in patt:
+                            word = word.split(sep='+')
+                            dat = word[1]
+                            PG1 = [[(word[0] in x), PGt.index(x)] for x in PGt]
+                            PG2 = list(compress(PGt, [item[0] for item in PG1]))
+                            PG3 = [item[1] for item in PG1 if item[0] == True]
+                            PP1 = [[bool(dat in x), PG2.index(x)] for x in PG2]
+                            PP2 = list(compress(PP1, [item[0] for item in PP1]))
+                            PP3 = [item[1] for item in PP1 if item[0] == True]
+                            PP4 = [PG2[item] for item in PP3]
+                        else:
+                            PG1 = [
+                                [((' ' + word + ' ' in x) or (word + ' ' in x) or (word + '.' in x)), PGt.index(x)]
+                                for x in PGt]
+                            # PG2 = list(compress(PGt,[item[0] for item in PG1]))
+                            PG2 = (compress(PGt, [item[0] for item in PG1]))
+                            PG3 = [item[1] for item in PG1 if item[0] == True]
+                            PP3 = PG3
+                            import numpy as np
+                            if PP3 != []:
+                                Pp3 = (np.array(PP3));
+                                print(len(Pp3));
+                                for lst in range(len(Pp3)):
+                                    PP5 = Pp3[lst];
+                                    # if (len(PGt[PP5]) < 250) and (PP5 < len(PGt) - 1):
+                                    #     # Sentenses are:
+                                    #     PP6 = PGt[PP5 - 1] + PGt[PP5] + PGt[PP5 + 1]
+                                    # else:
+                                    #     PP6 = PGt[PP5]
+                                    # PP5 = Pp3[lst];
+                                    if (len(PGt[PP5]) < 250) and (PP5 < len(PGt) - 1):
+                                        # Sentenses are:
+                                        PP6 = PGt[PP5 - 1] + PGt[PP5] + PGt[PP5 + 1]
+                                    else:
+                                        PP6 = PGt[PP5]
+                                        # print(PGt)
+                                    Keyword_present += Keyword_present;
+                                    before_keyword, keyword, after_keyword = PP6.partition(q)
+                                    l1 = []
+                                    l1.append(before_keyword[0:20])
+                                    l1.append(keyword)
+                                    l1.append(after_keyword[0:70])
+                                    # print("actual words", PP6)
+                                    # print("Few words",l1)
+                                    # Few_words = re.search(q, PP6)
+                                    # print("Few words", Few_words)
+                                    # Few_words = re.compile(q.lower()).search(PP6)
+                                    # print('keyword:', q,'\n')
+                                    # print("Sentence:", PP6,'\n')
+                                    # text analysis starts here:PP
+                                    Main_sentance = []
+                                    sents = nltk.sent_tokenize(PP6.lower())
+                                    No_of_word = len(sents[0])
+                                    No_of_Line = int(No_of_word / 75)
+                                    lemmatizer = WordNetLemmatizer()
+                                    Ph_number = [];
+                                    Tagged_word = [];
+                                    for i in range(len(sents)):
+                                        emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", sents[i])
+                                        # print(emails)
+                                        if len(emails) != 0:
+                                            Ph_number = re.findall(
+                                                r"((?:\+\d{2}[-\.\s]??|\d{4}[-\.\s]??)?(?:\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}))",
+                                                sents[i])
+                                            words = nltk.word_tokenize(sents[i])
+                                            POS = nltk.pos_tag(words)
+                                            # print('POS tagging:', POS, '\n')
+                                            Tagged_word = []
+                                            for words, tag in POS:
+                                                if (tag == 'CD' or tag == 'NNS'):
+                                                    Tagged_word.append(words)
+                                            # print('Tagged_words:', Tagged_word, '\n')
+
+                                        words = nltk.word_tokenize(sents[i])
+                                        words = [lemmatizer.lemmatize(word) for word in words if
+                                                 word not in set(stopwords.words('english'))]
+                                        sents[i] = ' '.join(words)
+                                        # punctuation = punctuation +'\n'
+                                        for punctuation in string.punctuation:
+                                            sents[i] = sents[i].replace(punctuation, '')
+                                        # print('keyword:', q, '\n')
+                                        # print('lemmatizer:', sents,'\n')
+                                        # print('punctuation:', sents,'\n')
+                                        wordss = nltk.word_tokenize(sents[i])
+                                        POS = nltk.pos_tag(wordss)
+                                        # print("\n")
+                                        # print('POS tagging:', POS,'\n')
+                                        Tagged_words = []
+                                        for wordss, tag in POS:
+                                            if (tag == 'NN' or tag == 'JJ'):
+                                                Tagged_words.append(wordss)
+
+                                        # print('Tagged_words:', Tagged_words,'\n')
+                                    # Frq = Tagged_words.count(q.lower())
+                                    Sum_sentence = list()
+                                    Key_list = sorted(q.split(), key=len)
+                                    if len(Key_list) == 1:
+                                        KEY = Key_list[0]
+                                    else:
+                                        KEY = Key_list[-1]
+
+                                    for j in range(len(Tagged_words)):
+                                        # subsent = re.compile(Key_list[-1].lower()).search(Tagged_words[j])
+                                        subsent = re.compile(KEY.lower()).search(Tagged_words[j])
+                                        # print(subsent)
+                                        if subsent != None:
+                                            Sum_sentence.append(j)
+                                    Cm = Sum_sentence
+                                    Column_size = Cm
+
+                                    if Cm != "" and Cm != []:
+                                        if (len(Cm) > 0):
+                                            for i in range(len(Cm)):
+                                                SenTance = Tagged_words[Cm[i]]
+                                                SenTance1 = [];
+                                                SenTance2 = [];
+                                                Main_sentance1 = "";
+                                                Main_sentance = [];
+                                                if (Cm[i] < len(Tagged_words) - 2):
+                                                    SenTance2_1 = Tagged_words[Cm[i] + 1];
+                                                    SenTance2_2 = Tagged_words[Cm[i] + 2]
+                                                    SenTance2.append(SenTance2_1)
+                                                    SenTance2.append(SenTance2_2)
+                                                else:
+                                                    SenTance2_3 = Tagged_words[Cm[i]]
+                                                    SenTance2.append(SenTance2_3)
+                                                if (Cm[i] != 0):
+                                                    SenTance1_1 = Tagged_words[Cm[i] - 1];
+                                                    SenTance1_2 = Tagged_words[Cm[i] - 2];
+                                                    SenTance1.append(SenTance1_2)
+                                                    SenTance1.append(SenTance1_1)
+                                                else:
+                                                    SenTance1_3 = Tagged_words[Cm[i]]
+                                                    SenTance1.append(SenTance1_3)
+
+                                                # Main_sentance.append(SenTance3)
+                                                SENT_1 = SenTance1
+                                                # Main_sentance.append(SenTance)
+                                                SENT_2 = SenTance2
+                                                # Main_sentance =
+                                                Main_sentance.append(SENT_1)
+                                                # Main_sentance =
+                                                Main_sentance.append(SENT_2)
+                                                # Main_sentance.append(SenTance4)
+                                                del SenTance1, SenTance2
+                                                # print("\n")
+                                    # Txt_Anlys = ' '.join(Main_sentance);
+                                    Main_sentance1 = Main_sentance
+                                    Txt_Anlys = numpy.asarray(Main_sentance1)
+                                    Txt_Anlys1 = list(np.unique(Txt_Anlys))
+                                    # print(numpy.asarray(Main_sentance1))
+                                    Frq = Tagged_words.count(SenTance)
+                                    if (".pdf" in p and len(tXt) < 150):
+                                        ImagePDF = "Image PDF"
+                                    else:
+                                        ImagePDF = 'Proper PDF File'
+                                    Statement = SenTance, "for", Txt_Anlys1;
+                                    PP7 = PP6[1:80]
+                                    # print(PP7)
+                                    df = pd.Series(
+                                        [p1, p3[6:], q, PP6, PP5, PG, Txt_Anlys, Frq, No_of_word,
+                                         No_of_Line, l1, emails, Ph_number, Tagged_word],
+                                        index=["File_Name", "file_list", "Word", "Sentence", "Sentence_No",
+                                               "Page_No", "Text_Summerization",
+                                               "Frequency_of_Keyword", "No_of_word_in_the_paragraph",
+                                               "No_of_Line_in_the_parapraph", "Few_words", "Email_ID", "Ph_number",
+                                               "Tagged_word"])
+                                    df1 = df1.append(df, ignore_index=True)
+                                    # print("Keyword:", q)
+                                    # print(Statement)
+                    if Keyword_present <= 1:
+                        PP6 = "Keyword not present"
+                        PP7 = "Keyword not present"
+                        PP5 = "Nill"
+                        l1 = "Keyword is not present"
+                        PG = "Nill"
+                        Txt_Anlys = "Keyword is not present for analysis"
+                        emails = "Nill"
+                        Ph_number = "Nill"
+                        Statement = "Keyword is not present for analysis"
+                        Frq = "Nill"
+                        No_of_word = "Nil"
+                        No_of_Line = "Nil"
+                        Tagged_word = " Nil"
+
+                        df = pd.Series(
+                            [p1, p3[6:], q, PP6, PP5, PG, Txt_Anlys, Frq, No_of_word,
+                             No_of_Line, l1, emails, Ph_number, Tagged_word],
+                            index=["File_Name", "file_list", "Word", "Sentence", "Sentence_No", "Page_No",
+                                   "Text_Summerization",
+                                   "Frequency_of_Keyword", "No_of_word_in_the_paragraph",
+                                   "No_of_Line_in_the_parapraph", "Few_words", "Email_ID", "Ph_number",
+                                   "Tagged_word"])
+                        df1 = df1.append(df, ignore_index=True)
+                    else:
+                        Statement1 = Statement;
+                        Keyword = q;
+                        Txt_Anlys1 = Txt_Anlys;
     DF = DF.append(df1)
     # df = pd.DataFrame(df1, index='Sentence')
-    DF1 = DF.file_list.to_string(index=False).rjust(10)
+    #DF1 = DF.file_list.to_string(index=False).rjust(10)
     # print(DF1.str.strip()) .format( left_aligned)
-    DF2 = DF.Word.to_string(index=False).upper().rjust(10)
-    DF3 = DF.Few_words.to_string(index=False)
+    #DF2 = DF.Word.to_string(index=False).upper().rjust(10)
+    #DF3 = DF.Few_words.to_string(index=False)
     # print(DF3)
-    DF4 = DF.Text_Summerization.to_string(index=False).rjust(10)
+    #DF4 = DF.Text_Summerization.to_string(index=False).rjust(10)
 
-    df2 = pd.Series([p3, "File", "Read", plen], index=["FileName", "Page", "Status", "CharCount"])
-    FileTrack = FileTrack.append(df2, ignore_index=True)
+    #df2 = pd.Series([p3, "File", "Read", plen], index=["FileName", "Page", "Status", "CharCount"])
+    #FileTrack = FileTrack.append(df2, ignore_index=True)
     # print(FileTrack)
     # excel_filename = "Contract_File_Search" + str(p1) + "_" + str(datetime.datetime.today().date()) + ".xlsx"
     File.objects.all().delete()
     Dictionary.objects.all().delete()
-    excel_filename1 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
-    FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename1)
-    df_filepath_trk = '/media/' + excel_filename1
+    #excel_filename1 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
+    #FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename1)
+    #df_filepath_trk = '/media/' + excel_filename1
 
     excel_filename2 = "Contract_File_output" + str(datetime.datetime.today().date()) + ".xlsx"
     DF.to_excel(BASE_DIR + '/media/' + excel_filename2)
     df_filepath_out = '/media/' + excel_filename2
 
-    excel_filename3 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
-    FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename3)
-    df_filepath = '/media/' + excel_filename3
+    #excel_filename3 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
+    #FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename3)
+    #df_filepath = '/media/' + excel_filename3
     # DF_File =DF.to_excel( "C:\\Users\RNALAB\Concentrix Corporation\CNX_Protect\media\result.xlsx")
 
     # return render(request, 'CNXProtect_Utl/cl_files.html', print({'result': DF}))
     # return render(request, 'CNXProtect_Utl/cl_files.html', {'DF': DF})
     # return render(request, 'CNXProtect_Utl/login_page.html', {'DF': DF})
     return render(request, 'CNXProtect_Utl/Contract_Library1.html',
-                  {'F_Count': F_Count, 'DF': DF, 'q': q, 'p3': p3, 'PP6': PP6, 'Statement': Statement, 'PP7': PP7,
-                   'excel_filename1': excel_filename1, 'l1': l1, 'DF1': DF1, 'DF2': DF2, 'DF3': DF3, 'DF4': DF4,
-                   'emails': emails, 'df_filepath_trk': df_filepath_trk, 'df_filepath_out': df_filepath_out})
+                  {'F_Count': F_Count, 'DF': DF, 'p3': p3, 'PP6': PP6, 'Statement': Statement, 'PP7': PP7,
+                   'l1': l1, 'emails': emails, 'df_filepath_out': df_filepath_out})
     # del statement, p3, PP6
 
     # # return redirect( 'CNXProtect_Utl/Contract_Library.html',
@@ -1992,7 +1991,7 @@ def read_file(request):
     # error = ""
     if request.method == "POST":
         # if request.POST:
-        print("this is my first line")
+        #print("this is my first line")
         notesfile = request.FILES['notesfile']
         p = notesfile
         # p1 = file.notesfile
@@ -2001,7 +2000,8 @@ def read_file(request):
         p1 = File.objects.values('notesfile')
         p2 = pd.DataFrame(p1, columns=['notesfile'])
         F_Count = len(p2.iloc[:]['notesfile'])
-        print(F_Count)
+        print("Saving File at")
+        print(p2.iloc[-1]['notesfile'])
         # print(p)        # p = File.objects.values('notesfile')
         # print(p)        # print("C:\Users\RNALAB\Concentrix Corporation\CNX_Protect\media\media" + p)
         messages.success(request,
