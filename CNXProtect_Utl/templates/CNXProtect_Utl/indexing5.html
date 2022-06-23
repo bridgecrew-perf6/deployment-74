@@ -43,8 +43,12 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-    <!-- End Search Bar -->
+<!--    <div class="search-bar">-->
+<!--      <form class="search-form d-flex align-items-center" method="POST" action="#">-->
+<!--        <input type="text" name="query" placeholder="Search" title="Enter search keyword">-->
+<!--        <button type="submit" title="Search"><i class="bi bi-search"></i></button>-->
+<!--      </form>-->
+<!--    </div>&lt;!&ndash; End Search Bar &ndash;&gt;-->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <li class="nav-item d-block d-lg-none">
@@ -117,7 +121,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Home</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -150,19 +154,24 @@
           </li>
         </ul>
       </li>
-
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="https://app.powerbi.com/links/8OnEUJ60_5?ctid=599e51d6-2f8c-4347-8e59-1f795a51a98c&pbi_source=linkShare&bookmarkGuid=4d2dc58f-c1df-4981-997f-a54e1c8a8e31">-->
+<!--          <i class="bi bi-grid"></i>-->
+<!--          <span> BI Dashboard</span>-->
+<!--        </a>-->
+<!--      </li>-->
     </ul>
   </aside>
 
     <main id="main" class="main">
     <div class="pagetitle">
       <h1>Report Card</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{% url 'indexing_data5' %}">Home</a></li>
-<li class="breadcrumb-item active">Results</li>
-        </ol>
-      </nav>
+<!--      <nav>-->
+<!--        <ol class="breadcrumb">-->
+<!--          <li class="breadcrumb-item"><a href="{% url 'indexing_data5' %}">Home</a></li>-->
+<!--<li class="breadcrumb-item active">Results</li>-->
+<!--        </ol>-->
+<!--      </nav>-->
     </div><!-- End Page Title -->
 {% csrf_token %}
     <section class="section dashboard">
