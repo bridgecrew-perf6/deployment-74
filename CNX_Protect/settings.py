@@ -21,6 +21,7 @@ nltk.download('omw-1.4')
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('stopwords')
+nltk.download('averaged_perceptron_tagger')
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
