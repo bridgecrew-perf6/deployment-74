@@ -6,7 +6,7 @@ from django.core.files.storage import FileSystemStorage
 import pandas as pd
 from CNX_Protect import settings
 from django.views import generic
-# from .models import File
+#import shutil
 from .models import Master_Data
 import os, datetime
 from django.contrib import messages
@@ -961,8 +961,8 @@ def cl_files(request, context=None):
     #excel_filename1 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
     #FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename1)
     #df_filepath_trk = '/media/' + excel_filename1
-
     excel_filename2 = "Contract_File_output" + str(datetime.datetime.today().date()) + ".xlsx"
+    os.remove(BASE_DIR + '/media/'+excel_filename2)
     DF.to_excel(BASE_DIR + '/media/' + excel_filename2)
     df_filepath_out = '/media/' + excel_filename2
 
