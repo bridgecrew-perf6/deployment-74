@@ -962,7 +962,8 @@ def cl_files(request, context=None):
     #FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename1)
     #df_filepath_trk = '/media/' + excel_filename1
     excel_filename2 = "Contract_File_output" + str(datetime.datetime.today().date()) + ".xlsx"
-    os.remove(BASE_DIR + '/media/'+excel_filename2)
+    if os.path.isdir(BASE_DIR + '/media/'+excel_filename2):
+        os.remove(BASE_DIR + '/media/'+excel_filename2)
     DF.to_excel(BASE_DIR + '/media/' + excel_filename2)
     df_filepath_out = '/media/' + excel_filename2
 
