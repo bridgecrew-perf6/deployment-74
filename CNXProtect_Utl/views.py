@@ -985,7 +985,7 @@ def cl_files(request, context=None):
         os.remove(BASE_DIR + '/media/'+excel_filename2)
     DF.to_excel(BASE_DIR + '/media/' + excel_filename2)
     df_filepath_out = '/media/' + excel_filename2
-
+    print(df_filepath_out)
     #excel_filename3 = "Contract_File_Tracker" + str(datetime.datetime.today().date()) + ".xlsx"
     #FileTrack.to_excel(BASE_DIR + '/media/' + excel_filename3)
     #df_filepath = '/media/' + excel_filename3
@@ -1288,8 +1288,9 @@ def FM_Real(request):
                                         [Key, Dictionary_Word.columns[k], Rw, Cm[i], x, sheetNam, SenTance],
                                         index=["Key", "Theme/Topic", "RowNum", "ColNum", "FileName",
                                                "SheetName", "Sentance"])
+                                    print(df2)
                                     File1 = File1.append(df2, ignore_index=True)
-                                    print(File1)
+                                    #print(File1)
                                     df_read = pd.Series([x, "File", "read", "-"],
                                                         index=["FileName", "Page", "Status", "CharCount"])
                                     FileTrack1 = FileTrack1.append(df_read, ignore_index=True)
@@ -1353,9 +1354,9 @@ def FM_Real(request):
     excel_filename_2_1 = "FMEA_output" + str(datetime.datetime.today().date()) + ".xlsx"
     if os.path.isdir(BASE_DIR + '/media/'+excel_filename_2_1):
         os.remove(BASE_DIR + '/media/'+excel_filename_2_1)
-    File1.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
+    DF.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
     df_filepath_out1_1 = '/media/' + excel_filename_2_1
-
+    print("File Path: "+df_filepath_out1_1)
     return render(request, 'CNXProtect_Utl/FMEA_Real.html', {'df_filepath_out1_1': df_filepath_out1_1})
 
 
