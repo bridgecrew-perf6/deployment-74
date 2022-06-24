@@ -1332,6 +1332,8 @@ def FM_Real(request):
     # File1.drop(labels=None, index=["Key", "Sentance", "FileName"])
     # DF4 = DF.Text_Summerization.to_string(index=False).rjust(10)
     excel_filename_2_1 = "FMEA_output" + str(datetime.datetime.today().date()) + ".xlsx"
+    if os.path.isdir(BASE_DIR + '/media/'+excel_filename_2_1):
+        os.remove(BASE_DIR + '/media/'+excel_filename_2_1)
     File1.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
     df_filepath_out1_1 = '/media/' + excel_filename_2_1
 
