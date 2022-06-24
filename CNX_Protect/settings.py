@@ -19,6 +19,7 @@ import pandas as pd
 import nltk
 nltk.download('omw-1.4')
 nltk.download('punkt')
+nltk.download('stopwords')
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
