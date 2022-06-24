@@ -831,13 +831,12 @@ def cl_files(request, context=None):
                                         wordss = nltk.word_tokenize(sents[i])
                                         POS = nltk.pos_tag(wordss)
                                         # print("\n")
-                                        # print('POS tagging:', POS,'\n')
+                                        print('POS tagging:', POS,'\n')
                                         Tagged_words = []
                                         for wordss, tag in POS:
                                             if (tag == 'NN' or tag == 'JJ'):
                                                 Tagged_words.append(wordss)
-
-                                        # print('Tagged_words:', Tagged_words,'\n')
+                                        print('Tagged_words:', Tagged_words, '\n')
                                     # Frq = Tagged_words.count(q.lower())
                                     Sum_sentence = list()
                                     Key_list = sorted(q.split(), key=len)
@@ -845,6 +844,26 @@ def cl_files(request, context=None):
                                         KEY = Key_list[0]
                                     else:
                                         KEY = Key_list[-1]
+                                        
+                                    input_word = nltk.word_tokenize(KEY.lower())
+                                    input_word = [lemmatizer.lemmatize(word) for word in input_word]
+                                    input_word = ' '.join(input_word)
+                                    KEY = input_word
+                                    print("Keyword is:", KEY)
+
+                                    input_word = nltk.word_tokenize(input_word)
+                                    input_POS = nltk.pos_tag(input_word)
+                                    if input_POS[0][-1] not in ['NN','JJ']:
+                                        df = pd.Series(
+                                            [p1, p3[6:], q, PP6, PP5, PG, '', '', No_of_word,
+                                             No_of_Line, l1, emails, Ph_number, Tagged_word],
+                                            index=["File_Name", "file_list", "Word", "Sentence", "Sentence_No",
+                                                   "Page_No", "Text_Summerization",
+                                                   "Frequency_of_Keyword", "No_of_word_in_the_paragraph",
+                                                   "No_of_Line_in_the_parapraph", "Few_words", "Email_ID", "Ph_number",
+                                                   "Tagged_word"])
+                                        df1 = df1.append(df, ignore_index=True)
+                                        break
 
                                     for j in range(len(Tagged_words)):
                                         # subsent = re.compile(Key_list[-1].lower()).search(Tagged_words[j])
