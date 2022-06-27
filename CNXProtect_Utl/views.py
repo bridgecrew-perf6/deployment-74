@@ -1290,7 +1290,7 @@ def FM_Real(request):
                                                "SheetName", "Sentance"])
                                     print(df2)
                                     File1 = File1.append(df2, ignore_index=True)
-                                    #print(File1)
+                                    print(File1)
                                     df_read = pd.Series([x, "File", "read", "-"],
                                                         index=["FileName", "Page", "Status", "CharCount"])
                                     FileTrack1 = FileTrack1.append(df_read, ignore_index=True)
@@ -1348,7 +1348,7 @@ def FM_Real(request):
     # print(DF1.str.strip()) .format( left_aligned)
     #FMDF2 = DF.Sentance.to_string(index=False)
     #FMDF3 = DF.FileName.to_string(index=False).rjust(10)
-    # print(DF3)
+    print(File1)
     # File1.drop(labels=None, index=["Key", "Sentance", "FileName"])
     # DF4 = DF.Text_Summerization.to_string(index=False).rjust(10)
     excel_filename_2_1 = "FMEA_output" + str(datetime.datetime.today().date()) + ".xlsx"
@@ -1357,6 +1357,7 @@ def FM_Real(request):
     File1.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
     df_filepath_out1_1 = '/media/' + excel_filename_2_1
     print("File Path: "+df_filepath_out1_1)
+    
     return render(request, 'CNXProtect_Utl/FMEA_Real.html', {'df_filepath_out1_1': df_filepath_out1_1})
 
 
