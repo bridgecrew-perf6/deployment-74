@@ -42,7 +42,7 @@ urlpatterns = [
 
     path('keyword_list1', views.keyword_list1, name='keyword_list1'),# bring into login page
     path('insert_keyword_item1', views.insert_keyword_item1, name='insert_keyword_item1'),
-    path('<int:keyword_id>', views.delete_keyword_item1, name='delete_keyword_item1'),
+    path('delete_keyword_item1/<int:keyword_id>', views.delete_keyword_item1, name='delete_keyword_item1'),
 
     path('keyword_list2', views.keyword_list2, name='keyword_list2'),# bring into login page
     path('insert_keyword_item2', views.insert_keyword_item2, name='insert_keyword_item2'),
