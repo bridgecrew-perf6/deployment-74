@@ -1340,9 +1340,9 @@ def FM_Real(request):
             #     df_unread = pd.Series([x, "File", "Cant' be read"], index=["FileName", "Page", "Status"])
             #     FileTrack1 = FileTrack1.append(df_unread, ignore_index=True)
             #     print("File can't be read")
-    # File_1.objects.all().delete()
-    # Dictionary1.objects.all().delete()
-    DF = DF.append(File1)
+    File_1.objects.all().delete()
+    Dictionary1.objects.all().delete()
+#     DF = DF.append(File1)
 
     #FMDF1 = DF.Key.to_string(index=False)
     # print(DF1.str.strip()) .format( left_aligned)
@@ -1354,7 +1354,7 @@ def FM_Real(request):
     excel_filename_2_1 = "FMEA_output" + str(datetime.datetime.today().date()) + ".xlsx"
     if os.path.isdir(BASE_DIR + '/media/'+excel_filename_2_1):
         os.remove(BASE_DIR + '/media/'+excel_filename_2_1)
-    DF.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
+    File1.to_excel(BASE_DIR + '/media/' + excel_filename_2_1)
     df_filepath_out1_1 = '/media/' + excel_filename_2_1
     print("File Path: "+df_filepath_out1_1)
     return render(request, 'CNXProtect_Utl/FMEA_Real.html', {'df_filepath_out1_1': df_filepath_out1_1})
