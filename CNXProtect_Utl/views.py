@@ -2326,58 +2326,69 @@ def indexing_data5(request):
     File = XL_File['File_Name/DirName']
     #print(Sent)
 
-    Sent1 = Sent.iloc[10]
-    Sent2 = Sent.iloc[2200]
-    Sent3 = Sent.iloc[3655]
-    Sent4 = Sent.iloc[400]
-    Sent5 = Sent.iloc[500]
-    Sent6 = Sent.iloc[600]
-    Sent7 = Sent.iloc[700]
-    Sent8 = Sent.iloc[800]
-    Sent9 = Sent.iloc[900]
-    Sent10 = Sent.iloc[1000]
-    Sent11 = Sent.iloc[1100]
-    Sent12 = Sent.iloc[1200]
+Sent1 = Sent.iloc[5444]
+    Sent2 = Sent.iloc[5732]
+    Sent3 = Sent.iloc[50772]
+    Sent4 = Sent.iloc[51764]
+    Sent5 = Sent.iloc[82124]
+    Sent6 = Sent.iloc[77362]
+    Sent7 = Sent.iloc[51267]
+    Sent8 = Sent.iloc[122733]
+    Sent9 = Sent.iloc[67500]
+    Sent10 = Sent.iloc[50717]
+    Sent11 = Sent.iloc[40459]
+    Sent12 = Sent.iloc[29864]
+    Sent13 = Sent.iloc[26755]
+    Sent14 = Sent.iloc[22264]
+    Sent15 = Sent.iloc[122733]
 
-    MSA1 = MSA.iloc[10]
-    MSA2 = MSA.iloc[2200]
-    MSA3 = MSA.iloc[3655]
-    MSA4 = MSA.iloc[400]
-    MSA5 = MSA.iloc[500]
-    MSA6 = MSA.iloc[600]
-    MSA7 = MSA.iloc[700]
-    MSA8 = MSA.iloc[800]
-    MSA9 = MSA.iloc[900]
-    MSA10 = MSA.iloc[1000]
-    MSA11 = MSA.iloc[1100]
-    MSA12 = MSA.iloc[1200]
+    MSA1 = MSA.iloc[5444]
+    MSA2 = MSA.iloc[5732]
+    MSA3 = MSA.iloc[50772]
+    MSA4 = MSA.iloc[51764]
+    MSA5 = MSA.iloc[82124]
+    MSA6 = MSA.iloc[77362]
+    MSA7 = MSA.iloc[51267]
+    MSA8 = MSA.iloc[122733]
+    MSA9 = MSA.iloc[67500]
+    MSA10 = MSA.iloc[50717]
+    MSA11 = MSA.iloc[40459]
+    MSA12 = MSA.iloc[29864]
+    MSA13 = MSA.iloc[26755]
+    MSA14 = MSA.iloc[22264]
+    MSA15 = MSA.iloc[122733]
 
-    Themes1 = Themes.iloc[10]
-    Themes2 = Themes.iloc[2200]
-    Themes3 = Themes.iloc[3655]
-    Themes4 = Themes.iloc[400]
-    Themes5 = Themes.iloc[500]
-    Themes6 = Themes.iloc[600]
-    Themes7 = Themes.iloc[700]
-    Themes8 = Themes.iloc[800]
-    Themes9 = Themes.iloc[900]
-    Themes10 = Themes.iloc[1000]
-    Themes11 = Themes.iloc[1100]
-    Themes12 = Themes.iloc[1200]
+    Themes1 = Themes.iloc[5444]
+    Themes2 = Themes.iloc[5732]
+    Themes3 = Themes.iloc[50772]
+    Themes4 = Themes.iloc[51764]
+    Themes5 = Themes.iloc[82124]
+    Themes6 = Themes.iloc[77362]
+    Themes7 = Themes.iloc[51267]
+    Themes8 = Themes.iloc[122733]
+    Themes9 = Themes.iloc[67500]
+    Themes10 = Themes.iloc[50717]
+    Themes11 = Themes.iloc[40459]
+    Themes12 = Themes.iloc[29864]
+    Themes13 = Themes.iloc[26755]
+    Themes14 = Themes.iloc[22264]
+    Themes15 = Themes.iloc[122733]
 
-    File1 = File.iloc[10][78:]
-    File2 = File.iloc[2200][78:]
-    File3 = File.iloc[3655][78:]
-    File4 = File.iloc[400][78:]
-    File5 = File.iloc[500][78:]
-    File6 = File.iloc[600][78:]
-    File7 = File.iloc[700][78:]
-    File8 = File.iloc[800][78:]
-    File9 = File.iloc[900][78:]
-    File10 = File.iloc[1000][78:]
-    File11 = File.iloc[1100][78:]
-    File12 = File.iloc[1200][78:]
-    File13 = File.iloc[1300][78:]
+    File1 = File.iloc[5444][78:]
+    File2 = File.iloc[5732][78:]
+    File3 = File.iloc[50772][78:]
+    File4 = File.iloc[51764][78:]
+    File5 = File.iloc[82124][78:]
+    File6 = File.iloc[77362][78:]
+    File7 = File.iloc[51267][78:]
+    File8 = File.iloc[122733][78:]
+    File9 = File.iloc[67500][78:]
+    File10 = File.iloc[50717][78:]
+    File11 = File.iloc[40459][78:]
+    File12 = File.iloc[29864][78:]
+    File13 = File.iloc[26755][78:]
+    File14 = File.iloc[22264][78:]
+    File15 = File.iloc[122733][78:]
 
     # print(pd.DataFrame(MSA_Name))
     Account = len(XL_File['MSA'].unique())
@@ -2463,6 +2474,9 @@ def indexing_data5(request):
     Sent10_1 = Sent_1.iloc[10]
     Sent11_1 = Sent_1.iloc[11]
     Sent12_1 = Sent_1.iloc[12]
+    Sent13_1 = Sent_1.iloc[13]
+    Sent14_1 = Sent_1.iloc[14]
+    Sent15_1 = Sent_1.iloc[15]
 
     MSA1_1 = MSA_1.iloc[1]
     MSA2_1 = MSA_1.iloc[2]
@@ -2476,6 +2490,9 @@ def indexing_data5(request):
     MSA10_1 = MSA_1.iloc[10]
     MSA11_1 = MSA_1.iloc[11]
     MSA12_1 = MSA_1.iloc[12]
+    MSA13_1 = MSA_1.iloc[13]
+    MSA14_1 = MSA_1.iloc[14]
+    MSA15_1 = MSA_1.iloc[15]
 
     Themes1_1 = Themes_1.iloc[1]
     Themes2_1 = Themes_1.iloc[2]
@@ -2489,6 +2506,9 @@ def indexing_data5(request):
     Themes10_1 = Themes_1.iloc[10]
     Themes11_1 = Themes_1.iloc[11]
     Themes12_1 = Themes_1.iloc[12]
+    Themes13_1 = Themes_1.iloc[13]
+    Themes14_1 = Themes_1.iloc[14]
+    Themes15_1 = Themes_1.iloc[15]
 
     File1_1 = File_1.iloc[1][70:]
     File2_1 = File_1.iloc[2][70:]
@@ -2503,6 +2523,8 @@ def indexing_data5(request):
     File11_1 = File_1.iloc[11][70:]
     File12_1 = File_1.iloc[12][70:]
     File13_1 = File_1.iloc[13][70:]
+    File14_1 = File_1.iloc[14][70:]
+    File15_1 = File_1.iloc[15][70:]
     XL_1 = XL_File_1
     #print(XL_1)
     #excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
@@ -2519,30 +2541,33 @@ def indexing_data5(request):
                                                              'keywords_1': keywords_1, 'File_No_1': File_No_1,'df_filepath_Exe1_1':FMEA_MASTER_PATH,
                                                              'XL_1': XL_1, 'DF17_2_1': DF17_2_1,
 
-                                                             'Sent1_1': Sent1_1, 'Sent2_1': Sent2_1, 'Sent3_1': Sent3_1, 'Sent4_1': Sent4_1, 'Sent5_1': Sent5_1,
-                                                             'Sent6_1': Sent6_1, 'Sent7_1': Sent7_1, 'Sent8_1': Sent8_1, 'Sent9_1': Sent9_1, 'Sent10_1': Sent10_1,
-                                                             'Sent11_1': Sent11_1, 'Sent12_1': Sent12_1,
-                                                             'File1_1': File1_1, 'File2_1': File2_1,  'File3_1': File3_1,  'File4_1': File4_1,  'File5_1': File5_1,
-                                                             'File6_1': File6_1,  'File7_1': File7_1,  'File8_1': File8_1,  'File9_1': File9_1,  'File10_1': File10_1,
-                                                             'File11_1': File11_1,  'File12_1': File12_1,
-                                                             'Themes1_1': Themes1_1,  'Themes2_1': Themes2_1,  'Themes3_1': Themes3_1,  'Themes4_1': Themes4_1, 'Themes5_1': Themes5_1,
-                                                             'Themes7_1': Themes7_1,  'Themes8_1': Themes8_1, 'Themes9_1': Themes9_1,  'Themes10_1': Themes10_1,  'Themes11_1': Themes11_1,
-                                                             'Themes12_1': Themes12_1,  'Themes6_1': Themes6_1,
-                                                             'MSA1_1': MSA1_1, 'MSA2_1': MSA2_1, 'MSA3_1': MSA3_1,'MSA4_1': MSA4_1,'MSA5_1': MSA5_1,'MSA6_1': MSA6_1,'MSA7_1': MSA7_1,'MSA8_1': MSA8_1,
-                                                             'MSA9_1': MSA9_1, 'MSA10_1': MSA10_1, 'MSA11_1': MSA11_1, 'MSA12_1': MSA12_1,
+'Sent1_1': Sent1_1, 'Sent2_1': Sent2_1, 'Sent3_1': Sent3_1, 'Sent4_1': Sent4_1, 'Sent5_1': Sent5_1,
+                   'Sent6_1': Sent6_1, 'Sent7_1': Sent7_1, 'Sent8_1': Sent8_1, 'Sent9_1': Sent9_1, 'Sent10_1': Sent10_1,
+                   'Sent11_1': Sent11_1, 'Sent12_1': Sent12_1,'Sent13_1': Sent13_1,'Sent14_1': Sent14_1,'Sent15_1': Sent15_1,
+                   'File1_1': File1_1, 'File2_1': File2_1, 'File3_1': File3_1, 'File4_1': File4_1, 'File5_1': File5_1,
+                   'File6_1': File6_1, 'File7_1': File7_1, 'File8_1': File8_1, 'File9_1': File9_1, 'File10_1': File10_1,
+                   'File11_1': File11_1, 'File12_1': File12_1,'File13_1': File13_1,'File14_1': File14_1,'File15_1': File15_1,
+                   'Themes1_1': Themes1_1, 'Themes2_1': Themes2_1, 'Themes3_1': Themes3_1, 'Themes4_1': Themes4_1,
+                   'Themes5_1': Themes5_1, 'Themes6_1': Themes6_1,
+                   'Themes7_1': Themes7_1, 'Themes8_1': Themes8_1, 'Themes9_1': Themes9_1, 'Themes10_1': Themes10_1,
+                   'Themes11_1': Themes11_1, 'Themes12_1': Themes12_1,'Themes13_1': Themes13_1,'Themes14_1': Themes14_1,'Themes15_1': Themes15_1,
+                   'MSA1_1': MSA1_1, 'MSA2_1': MSA2_1, 'MSA3_1': MSA3_1, 'MSA4_1': MSA4_1, 'MSA5_1': MSA5_1,
+                   'MSA6_1': MSA6_1, 'MSA7_1': MSA7_1, 'MSA8_1': MSA8_1,
+                   'MSA9_1': MSA9_1, 'MSA10_1': MSA10_1, 'MSA11_1': MSA11_1, 'MSA12_1': MSA12_1,'MSA13_1': MSA13_1,'MSA14_1': MSA14_1,'MSA15_1': MSA15_1,
 
-                                                             'Sent1': Sent1, 'Sent2': Sent2, 'Sent3': Sent3, 'Sent4': Sent4, 'Sent5': Sent5,
-                                                             'Sent6': Sent6, 'Sent7': Sent7, 'Sent8': Sent8, 'Sent9': Sent9, 'Sent10': Sent10,
-                                                             'Sent11': Sent11, 'Sent12': Sent12,
-                                                             'File1': File1, 'File2': File2,  'File3': File3,  'File4': File4,  'File5': File5,
-                                                             'File6': File6,  'File7': File7,  'File8': File8,  'File9': File9,  'File10': File10,
-                                                             'File11': File11,  'File12': File12,
-                                                             'Themes1': Themes1,  'Themes2': Themes2,  'Themes3': Themes3,  'Themes4': Themes4, 'Themes5': Themes5,
-                                                             'Themes7': Themes7,  'Themes8': Themes8, 'Themes9': Themes9,  'Themes10': Themes10,  'Themes11': Themes11,
-                                                             'Themes12': Themes12,  'Themes6': Themes6,
-                                                             'MSA1': MSA1, 'MSA2': MSA2, 'MSA3': MSA3,'MSA4': MSA4,'MSA5': MSA5,'MSA6': MSA6,'MSA7': MSA7,'MSA8': MSA8,
-                                                             'MSA9': MSA9, 'MSA10': MSA10, 'MSA11': MSA11, 'MSA12': MSA12})
-                      # , 'DF1_1': DF1_1, 'DF1_2': DF1_2, 'DF1_3': DF1_3, 'DF1_4': DF1_4, 'DF1_5': DF1_5, 'DF1_6': DF1_6})
+                   'Sent1': Sent1, 'Sent2': Sent2, 'Sent3': Sent3, 'Sent4': Sent4, 'Sent5': Sent5,
+                   'Sent6': Sent6, 'Sent7': Sent7, 'Sent8': Sent8, 'Sent9': Sent9, 'Sent10': Sent10,
+                   'Sent11': Sent11, 'Sent12': Sent12,'Sent13': Sent13,'Sent14': Sent14,'Sent15': Sent15,
+                   'File1': File1, 'File2': File2, 'File3': File3, 'File4': File4, 'File5': File5,
+                   'File6': File6, 'File7': File7, 'File8': File8, 'File9': File9, 'File10': File10,
+                   'File11': File11, 'File12': File12,'File13': File13,'File14': File14,'File15': File15,
+                   'Themes1': Themes1, 'Themes2': Themes2, 'Themes3': Themes3, 'Themes4': Themes4, 'Themes5': Themes5,
+                   'Themes7': Themes7, 'Themes8': Themes8, 'Themes9': Themes9, 'Themes10': Themes10,
+                   'Themes11': Themes11,
+                   'Themes12': Themes12, 'Themes6': Themes6,'Themes13': Themes13,'Themes14': Themes14,'Themes15': Themes15,
+                   'MSA1': MSA1, 'MSA2': MSA2, 'MSA3': MSA3, 'MSA4': MSA4, 'MSA5': MSA5, 'MSA6': MSA6, 'MSA7': MSA7,
+                   'MSA8': MSA8,
+                   'MSA9': MSA9, 'MSA10': MSA10, 'MSA11': MSA11, 'MSA12': MSA12, 'MSA13': MSA13, 'MSA14': MSA14, 'MSA15': MSA15})
 
 
 def score_card(request):
