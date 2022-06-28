@@ -75,6 +75,7 @@ urlpatterns = [
     path('indexing3', views.indexing_data3, name='indexing_data3'),
     path('indexing4', views.indexing_data4, name='indexing_data4'),
     path('indexing5', views.indexing_data5, name='indexing_data5'),
+    path('indexing6', views.indexing_data6, name='indexing_data6'),
     path('Main_page_template', views.Main_page_template, name='Main_page_template'),
 
 ]
