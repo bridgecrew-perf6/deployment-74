@@ -2124,6 +2124,323 @@ def master_data(request):
                   {'Account': Account, 'DF17_1': DF17_1, 'DF1_1': DF1_1, 'DF1_2': DF1_2, 'DF1_3': DF1_3, 'DF1_4': DF1_4,
                    'DF1_5': DF1_5, 'DF1_6': DF1_6})
 
+def indexing_data6(request):
+    from timeit import default_timer as timer
+    start = timer()
+    # return render(request, 'CNXProtect_Utl/indexing5.html',{'DF17_3': 700})
+    # if request.method == "POST":
+    #     notesfile_1 = request.FILES['notesfile_1']
+    #     print("POST METHOD!!!")
+    #     p = notesfile_1
+    #     # p1 = file.notesfile
+    #     a = Master_Data(notesfile_1=notesfile_1)
+    #     a.save()
+    # #p3 = Master_Data.objects.values('notesfile_1')
+    # # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
+    # p4 = pd.DataFrame(Master_Data.objects.values('notesfile_1'), columns=['notesfile_1'])
+    # #print(p4)
+    # F_Len = len(p4.iloc[:]['notesfile_1'])
+    # print(F_Len)
+    # F_Count = p4.iloc[F_Len - 1]['notesfile_1']
+    # F_Count1 = p4.iloc[F_Len - 2]['notesfile_1']
+    # X_File = BASE_DIR+"/media/" + F_Count
+    # File_Tracker = BASE_DIR+"/media/" + F_Count1
+    # print(X_File)
+    # print(File_Tracker)
+    # print(timer()-start)
+    # print("The output Master File is", X_File)
+    # print("The output File Tracker is", File_Tracker)
+    # #XL_File = pd.read_excel(X_File)#, usecols=['File_Name/DirName', 'Word', 'Theme/Topic', 'Sentence', 'MSA'])
+    # if not os.path.isdir("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File/contract_master_unzip"):
+    #     with zipfile.ZipFile("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File/contract_master.zip",'r') as zip_ref:
+    #         zip_ref.extractall('C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File/contract_master_unzip')
+    # XL_File = pd.read_json("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File/contract_master_unzip/contract_master.json")
+    # print(timer() - start)
+    # #ileTracker = pd.read_excel(File_Tracker)#, usecols=['File_Name'])
+    # FileTracker = pd.read_json("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File/contract_filetrack.json")
+    # print(len(XL_File))
+    # print(len(FileTracker))
+    # #XL_File.to_excel('C:/Users/RNALAB/Desktop/contract_xlfile.xlsx')
+    # #FileTracker.to_excel('C:/Users/RNALAB/Desktop/contract_filetrack.xlsx')
+    # print(timer() - start)
+    # print("Read excel files")
+    # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
+    MSA_Name = request.GET.getlist('MSA_1')
+    # print(MSA_Name)
+    Theme_Name = request.GET.getlist('Theme')
+    print(timer() - start)
+    DF17 = XL_File[XL_File['MSA'].isin(MSA_Name) & XL_File['Word'].isin(Theme_Name)]
+    # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
+    excel_filename_1 = "Indexing_report_" + str(datetime.datetime.today().date()) + ".xlsx"
+    # DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1)
+    DF17_1 = '/media/' + excel_filename_1
+
+    # print(DF17_2)
+    print(timer() - start)
+    Sent = XL_File['Sentence']
+    MSA = XL_File['MSA']
+    Themes = XL_File['Theme/Topic']
+    Keyword = XL_File['Word']
+    File = XL_File['File_Name/DirName']
+    # print(Sent)
+
+    Sent1 = Sent.iloc[44]
+    Sent2 = Sent.iloc[31]
+    Sent3 = Sent.iloc[36]
+    Sent4 = Sent.iloc[37]
+    Sent5 = Sent.iloc[212]
+    Sent6 = Sent.iloc[275]
+    Sent7 = Sent.iloc[255]
+    Sent8 = Sent.iloc[154]
+    Sent9 = Sent.iloc[43]
+    Sent10 = Sent.iloc[207]
+    Sent11 = Sent.iloc[211]
+    Sent12 = Sent.iloc[41]
+    Sent13 = Sent.iloc[153]
+    Sent14 = Sent.iloc[214]
+    Sent15 = Sent.iloc[218]
+
+    MSA1 = MSA.iloc[44]
+    MSA2 = MSA.iloc[31]
+    MSA3 = MSA.iloc[36]
+    MSA4 = MSA.iloc[37]
+    MSA5 = MSA.iloc[212]
+    MSA6 = MSA.iloc[275]
+    MSA7 = MSA.iloc[255]
+    MSA8 = MSA.iloc[154]
+    MSA9 = MSA.iloc[43]
+    MSA10 = MSA.iloc[207]
+    MSA11 = MSA.iloc[211]
+    MSA12 = MSA.iloc[41]
+    MSA13 = MSA.iloc[153]
+    MSA14 = MSA.iloc[214]
+    MSA15 = MSA.iloc[218]
+
+    Themes1 = Themes.iloc[44]
+    Themes2 = Themes.iloc[31]
+    Themes3 = Themes.iloc[36]
+    Themes4 = Themes.iloc[37]
+    Themes5 = Themes.iloc[212]
+    Themes6 = Themes.iloc[275]
+    Themes7 = Themes.iloc[255]
+    Themes8 = Themes.iloc[154]
+    Themes9 = Themes.iloc[43]
+    Themes10 = Themes.iloc[207]
+    Themes11 = Themes.iloc[211]
+    Themes12 = Themes.iloc[41]
+    Themes13 = Themes.iloc[153]
+    Themes14 = Themes.iloc[214]
+    Themes15 = Themes.iloc[218]
+
+    File1 = File.iloc[44][78:]
+    File2 = File.iloc[31][78:]
+    File3 = File.iloc[36][78:]
+    File4 = File.iloc[37][78:]
+    File5 = File.iloc[212][78:]
+    File6 = File.iloc[275][78:]
+    File7 = File.iloc[255][78:]
+    File8 = File.iloc[154][78:]
+    File9 = File.iloc[43][78:]
+    File10 = File.iloc[207][78:]
+    File11 = File.iloc[211][78:]
+    File12 = File.iloc[41][78:]
+    File13 = File.iloc[153][78:]
+    File14 = File.iloc[214][78:]
+    File15 = File.iloc[218][78:]
+
+    print(timer() - start)
+    # print(pd.DataFrame(MSA_Name))
+    Account = len(XL_File['MSA'].unique())
+    Theme = len(XL_File['Theme/Topic'].unique())
+    keywords = len(XL_File['Word'].unique())
+    File_No = len(FileTracker['File_Name'].unique())
+    DF17_2 = len(XL_File)
+    XL = XL_File
+    # print(XL)
+    excel_filename_3 = "Contract_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    # XL_File.to_excel(BASE_DIR + '/media/' + excel_filename_3)
+    df_filepath_Exe1 = '/media/' + excel_filename_3
+    print(timer() - start)
+    # ************************************************ FROM HERE FOR FMEA *****************************************************************
+    #     if request.method == "POST":
+    #         notesfile_11 = request.FILES['notesfile_11']
+    #         p = notesfile_11
+    #         # p1 = file.notesfile
+    #         a = Master_Data1(notesfile_11=notesfile_11)
+    #         a.save()
+    #     #p5 = Master_Data1.objects.values('notesfile_11')
+    #     # print(Master_Data.objects.filter(notesfile_1__startwith = '0' ))
+    #     p6 = pd.DataFrame(Master_Data1.objects.values('notesfile_11'), columns=['notesfile_11'])
+    #     #print(p6)
+    #     F_Len = len(p6.iloc[:]['notesfile_11'])
+    #     print(F_Len)
+    #     F_Count_1 = p6.iloc[F_Len - 1]['notesfile_11']
+    #     F_Count1_1 = p6.iloc[F_Len - 2]['notesfile_11']
+    #     X_File_1 = BASE_DIR+"/media/" + F_Count_1
+    #     File_Tracker_1 = BASE_DIR+"/media/" + F_Count1_1
+    #     print(X_File_1)
+    #     print(File_Tracker_1)
+    #     print(timer() - start)
+    #     print("The output Master File is", X_File_1)
+    #     print("The output File Tracker is", File_Tracker_1)
+    #     #XL_File_1 = pd.read_excel(X_File_1)#, usecols=['FileName', 'Key', 'Sentance', 'Theme/Topic', 'Geo', 'MSA'])
+    #     if not os.path.isdir("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File1/fmea_master_unzip"):
+    #         with zipfile.ZipFile("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File1/fmea_master.zip",'r') as zip_ref:
+    #             zip_ref.extractall('C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File1/fmea_master_unzip')
+    #     XL_File_1 = pd.read_json("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File1/fmea_master_unzip/fmea_master.json")
+    #     print(timer() - start)
+    #     #FileTracker_1 = pd.read_excel(File_Tracker_1)#, usecols=['FileName'])
+    #     FileTracker_1 = pd.read_json("C:/Users/RNALAB/Concentrix Corporation/CNX_Protect/media/Master_File1/fmea_filetrack.json")
+    #     #XL_File_1.to_excel('C:/Users/RNALAB/Desktop/fmea_xlfile.xlsx')
+    #     #FileTracker_1.to_excel('C:/Users/RNALAB/Desktop/fmea_filetrack.xlsx')
+    #     print(timer() - start)
+    #     print("Read excel files")
+    # XL_File['Date_of_modified'] = pd.to_datetime(XL_File['Date_of_modified'])
+    MSA_Name_1 = request.GET.getlist('Geo')
+    # print(MSA_Name_1)
+    Theme_Name_1 = request.GET.getlist('Theme/Topic')
+    # print(Theme_Name_1)
+    DF17_1 = XL_File_1[XL_File_1['Geo'].isin(MSA_Name_1) & XL_File_1['Key'].isin(Theme_Name_1)]
+    # DF17 = XL_File.loc[(XL_File['MSA'] == MSA_Name) & (XL_File['Theme/Topic'] == Theme_Name) & (XL_File['Date_of_modified'] >= Time_in) & (XL_File['Date_of_modified'] <= Time_out)]
+    excel_filename_1_1 = "Indexing_report_FMEA_" + str(datetime.datetime.today().date()) + ".xlsx"
+    # DF17.to_excel(BASE_DIR + '/media/' + excel_filename_1_1)
+    DF17_1_1 = '/media/' + excel_filename_1
+    DF17_2_1 = len(XL_File_1)
+    # print(DF17_2_1)
+    print(timer() - start)
+    Sent_1 = XL_File_1['Sentance']
+    MSA_1 = XL_File_1['MSA']
+    Themes_1 = XL_File_1['Theme/Topic']
+    Keyword_1 = XL_File_1['Key']
+    File_1 = XL_File_1['FileName']
+    # print(Sent_1)
+
+    Account_1 = len(XL_File_1['Geo'].unique())
+    Theme_1 = len(XL_File_1['Theme/Topic'].unique())
+    keywords_1 = len(XL_File_1['Key'].unique())
+    File_No_1 = len(FileTracker_1['FileName'].unique())
+    Records_1 = len(FileTracker_1['FileName'].unique())
+    DF17_2_1 = len(XL_File_1)
+
+    Sent_1 = XL_File_1['Sentance']
+    MSA_1 = XL_File_1['MSA']
+    Themes_1 = XL_File_1['Theme/Topic']
+    Keyword_1 = XL_File_1['Key']
+    File_1 = XL_File_1['FileName']
+    # print(Sent)
+
+    Sent1_1 = Sent_1.iloc[1]
+    Sent2_1 = Sent_1.iloc[2]
+    Sent3_1 = Sent_1.iloc[3]
+    Sent4_1 = Sent_1.iloc[4]
+    Sent5_1 = Sent_1.iloc[5]
+    Sent6_1 = Sent_1.iloc[6]
+    Sent7_1 = Sent_1.iloc[7]
+    Sent8_1 = Sent_1.iloc[8]
+    Sent9_1 = Sent_1.iloc[9]
+    Sent10_1 = Sent_1.iloc[10]
+    Sent11_1 = Sent_1.iloc[11]
+    Sent12_1 = Sent_1.iloc[12]
+    Sent13_1 = Sent_1.iloc[13]
+    Sent14_1 = Sent_1.iloc[14]
+    Sent15_1 = Sent_1.iloc[15]
+
+    MSA1_1 = MSA_1.iloc[1]
+    MSA2_1 = MSA_1.iloc[2]
+    MSA3_1 = MSA_1.iloc[3]
+    MSA4_1 = MSA_1.iloc[4]
+    MSA5_1 = MSA_1.iloc[5]
+    MSA6_1 = MSA_1.iloc[6]
+    MSA7_1 = MSA_1.iloc[7]
+    MSA8_1 = MSA_1.iloc[8]
+    MSA9_1 = MSA_1.iloc[9]
+    MSA10_1 = MSA_1.iloc[10]
+    MSA11_1 = MSA_1.iloc[11]
+    MSA12_1 = MSA_1.iloc[12]
+    MSA13_1 = MSA_1.iloc[13]
+    MSA14_1 = MSA_1.iloc[14]
+    MSA15_1 = MSA_1.iloc[15]
+
+    Themes1_1 = Themes_1.iloc[1]
+    Themes2_1 = Themes_1.iloc[2]
+    Themes3_1 = Themes_1.iloc[3]
+    Themes4_1 = Themes_1.iloc[4]
+    Themes5_1 = Themes_1.iloc[5]
+    Themes6_1 = Themes_1.iloc[6]
+    Themes7_1 = Themes_1.iloc[7]
+    Themes8_1 = Themes_1.iloc[8]
+    Themes9_1 = Themes_1.iloc[9]
+    Themes10_1 = Themes_1.iloc[10]
+    Themes11_1 = Themes_1.iloc[11]
+    Themes12_1 = Themes_1.iloc[12]
+    Themes13_1 = Themes_1.iloc[13]
+    Themes14_1 = Themes_1.iloc[14]
+    Themes15_1 = Themes_1.iloc[15]
+
+    File1_1 = File_1.iloc[1][70:]
+    File2_1 = File_1.iloc[2][70:]
+    File3_1 = File_1.iloc[3][70:]
+    File4_1 = File_1.iloc[4][70:]
+    File5_1 = File_1.iloc[5][70:]
+    File6_1 = File_1.iloc[6][70:]
+    File7_1 = File_1.iloc[7][70:]
+    File8_1 = File_1.iloc[8][70:]
+    File9_1 = File_1.iloc[9][70:]
+    File10_1 = File_1.iloc[10][70:]
+    File11_1 = File_1.iloc[11][70:]
+    File12_1 = File_1.iloc[12][70:]
+    File13_1 = File_1.iloc[13][70:]
+    File14_1 = File_1.iloc[14][70:]
+    File15_1 = File_1.iloc[15][70:]
+
+    XL_1 = XL_File_1
+    print(XL_1)
+    excel_filename_4 = "FMEA_Master_Data" + str(datetime.datetime.today().date()) + ".xlsx"
+    # XL_File_1.to_excel(BASE_DIR + '/media/' + excel_filename_4)
+    df_filepath_Exe1_1 = '/media/' + excel_filename_4
+    print(CONTRACT_MASTER_PATH)
+    print(FMEA_MASTER_PATH)
+
+    return render(request, 'CNXProtect_Utl/indexing6.html',
+                  {'Sent': Sent, 'MSA': MSA, 'Themes': Themes, 'Keyword': Keyword,
+                   'File': File, 'Sent_1': Sent_1, 'MSA_1': MSA_1, 'Themes_1': Themes_1, 'Keyword_1': Keyword_1,
+                   'File_1': File_1, 'df_filepath_Exe1': CONTRACT_MASTER_PATH, 'Account': Account,
+                   'DF17_1': DF17_1, 'DF17_2': DF17_2, 'DF17_3': 700, 'Theme': Theme,
+                   'keywords': keywords, 'File_No': File_No,
+                   'Account_1': Account_1,
+                   # 'DF17_1': DF17_1,  'DF17_3': 700,
+                   'Records_1': Records_1, 'Theme_1': Theme_1,
+                   'keywords_1': keywords_1, 'File_No_1': File_No_1, 'df_filepath_Exe1_1': FMEA_MASTER_PATH,
+                   'XL_1': XL_1, 'DF17_2_1': DF17_2_1,
+
+                   'Sent1_1': Sent1_1, 'Sent2_1': Sent2_1, 'Sent3_1': Sent3_1, 'Sent4_1': Sent4_1, 'Sent5_1': Sent5_1,
+                   'Sent6_1': Sent6_1, 'Sent7_1': Sent7_1, 'Sent8_1': Sent8_1, 'Sent9_1': Sent9_1, 'Sent10_1': Sent10_1,
+                   'Sent11_1': Sent11_1, 'Sent12_1': Sent12_1,'Sent13_1': Sent13_1,'Sent14_1': Sent14_1,'Sent15_1': Sent15_1,
+                   'File1_1': File1_1, 'File2_1': File2_1, 'File3_1': File3_1, 'File4_1': File4_1, 'File5_1': File5_1,
+                   'File6_1': File6_1, 'File7_1': File7_1, 'File8_1': File8_1, 'File9_1': File9_1, 'File10_1': File10_1,
+                   'File11_1': File11_1, 'File12_1': File12_1,'File13_1': File13_1,'File14_1': File14_1,'File15_1': File15_1,
+                   'Themes1_1': Themes1_1, 'Themes2_1': Themes2_1, 'Themes3_1': Themes3_1, 'Themes4_1': Themes4_1,
+                   'Themes5_1': Themes5_1, 'Themes6_1': Themes6_1,
+                   'Themes7_1': Themes7_1, 'Themes8_1': Themes8_1, 'Themes9_1': Themes9_1, 'Themes10_1': Themes10_1,
+                   'Themes11_1': Themes11_1, 'Themes12_1': Themes12_1,'Themes13_1': Themes13_1,'Themes14_1': Themes14_1,'Themes15_1': Themes15_1,
+                   'MSA1_1': MSA1_1, 'MSA2_1': MSA2_1, 'MSA3_1': MSA3_1, 'MSA4_1': MSA4_1, 'MSA5_1': MSA5_1,
+                   'MSA6_1': MSA6_1, 'MSA7_1': MSA7_1, 'MSA8_1': MSA8_1,
+                   'MSA9_1': MSA9_1, 'MSA10_1': MSA10_1, 'MSA11_1': MSA11_1, 'MSA12_1': MSA12_1,'MSA13_1': MSA13_1,'MSA14_1': MSA14_1,'MSA15_1': MSA15_1,
+
+                   'Sent1': Sent1, 'Sent2': Sent2, 'Sent3': Sent3, 'Sent4': Sent4, 'Sent5': Sent5,
+                   'Sent6': Sent6, 'Sent7': Sent7, 'Sent8': Sent8, 'Sent9': Sent9, 'Sent10': Sent10,
+                   'Sent11': Sent11, 'Sent12': Sent12,'Sent13': Sent13,'Sent14': Sent14,'Sent15': Sent15,
+                   'File1': File1, 'File2': File2, 'File3': File3, 'File4': File4, 'File5': File5,
+                   'File6': File6, 'File7': File7, 'File8': File8, 'File9': File9, 'File10': File10,
+                   'File11': File11, 'File12': File12,'File13': File13,'File14': File14,'File15': File15,
+                   'Themes1': Themes1, 'Themes2': Themes2, 'Themes3': Themes3, 'Themes4': Themes4, 'Themes5': Themes5,
+                   'Themes7': Themes7, 'Themes8': Themes8, 'Themes9': Themes9, 'Themes10': Themes10,
+                   'Themes11': Themes11,
+                   'Themes12': Themes12, 'Themes6': Themes6,'Themes13': Themes13,'Themes14': Themes14,'Themes15': Themes15,
+                   'MSA1': MSA1, 'MSA2': MSA2, 'MSA3': MSA3, 'MSA4': MSA4, 'MSA5': MSA5, 'MSA6': MSA6, 'MSA7': MSA7,
+                   'MSA8': MSA8,
+                   'MSA9': MSA9, 'MSA10': MSA10, 'MSA11': MSA11, 'MSA12': MSA12, 'MSA13': MSA13, 'MSA14': MSA14, 'MSA15': MSA15})
+
 
 def indexing1(request):
     # Keyword = Dictionary(keywords=request.POST['keywords'])
