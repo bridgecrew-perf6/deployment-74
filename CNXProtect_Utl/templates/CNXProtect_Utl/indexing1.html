@@ -256,7 +256,7 @@ div_1 {text-align: center;}
         <!-- End Messages Nav -->
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{% static 'img/profile.jpg' %}" alt="Profile" class="rounded-circle">
+            <img src="{% static 'img/CNX_log.jpg' %}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{user.username}}</span>
           </a><!-- End Profile Iamge Icon -->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -273,7 +273,7 @@ div_1 {text-align: center;}
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'Main_page_template' %}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -282,7 +282,7 @@ div_1 {text-align: center;}
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'Main_page_template' %}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -291,7 +291,7 @@ div_1 {text-align: center;}
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'Main_page_template' %}">
                 <i class="bi bi-question-circle"></i>
                 <span>Need Help?</span>
               </a>
