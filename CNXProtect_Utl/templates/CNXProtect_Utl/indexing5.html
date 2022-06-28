@@ -59,7 +59,7 @@
         <!-- End Messages Nav -->
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{% static 'img/profile.jpg' %}" alt="Profile" class="rounded-circle">
+            <img src="{% static 'img/CNX_log.jpg' %}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{user.username}}</span>
           </a><!-- End Profile Iamge Icon -->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -77,7 +77,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'Main_page_template' %}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -87,7 +87,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'Main_page_template' %}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -96,12 +96,12 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
+<!--            <li>-->
+<!--              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">-->
+<!--                <i class="bi bi-question-circle"></i>-->
+<!--                <span>Need Help?</span>-->
+<!--              </a>-->
+<!--            </li>-->
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -327,6 +327,27 @@
                         <td>{{Sent12}}</td>
                       </tr>
                       <tr>
+                        <th scope="row"><a href="#">#13</a></th>
+                        <td>{{MSA13}} </td>
+                        <td><a href="#" class="text-primary">{{Themes13}}</a></td>
+                        <td>{{File13}}</td>
+                        <td>{{Sent13}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#14</a></th>
+                        <td>{{MSA14}} </td>
+                        <td><a href="#" class="text-primary">{{Themes14}}</a></td>
+                        <td>{{File14}}</td>
+                        <td>{{Sent14}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#15</a></th>
+                        <td>{{MSA15}} </td>
+                        <td><a href="#" class="text-primary">{{Themes15}}</a></td>
+                        <td>{{File15}}</td>
+                        <td>{{Sent15}}</td>
+                      </tr>
+                      <tr>
                     </tbody>
                   </table>
                 </div>
@@ -485,6 +506,27 @@
                         <td><a href="#" class="text-primary">{{Themes12_1}}</a></td>
                         <td>{{File12_1}}</td>
                         <td>{{Sent12_1}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#13</a></th>
+                        <td>{{MSA13_1}} </td>
+                        <td><a href="#" class="text-primary">{{Themes13_1}}</a></td>
+                        <td>{{File13_1}}</td>
+                        <td>{{Sent13_1}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#14</a></th>
+                        <td>{{MSA14_1}} </td>
+                        <td><a href="#" class="text-primary">{{Themes14_1}}</a></td>
+                        <td>{{File14_1}}</td>
+                        <td>{{Sent14_1}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#15</a></th>
+                        <td>{{MSA15_1}} </td>
+                        <td><a href="#" class="text-primary">{{Themes15_1}}</a></td>
+                        <td>{{File15_1}}</td>
+                        <td>{{Sent15_1}}</td>
                       </tr>
                       <tr>
                     </tbody>
